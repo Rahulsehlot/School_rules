@@ -1,0 +1,41 @@
+.senses_taste_img_game1 {
+  width: 15%;
+  position: fixed;
+  top: 65%;
+  left: 40%;
+}
+.senses_smell_img_game1 {
+  width: 15%;
+  position: fixed;
+  top: 55%;
+  left: 15%;
+}
+.senses_touch_img_game1 {
+  width: 15%;
+  position: fixed;
+  top: 20%;
+  right: 5%;
+}
+
+.senses_hearing_img_game1 {
+  width: 15%;
+  position: fixed;
+  top: 55%;
+  right: 15%;
+}
+
+.senses_vision_img_game1 {
+  width: 15%;
+  position: fixed;
+  top: 20%;
+  left: 5%;
+}
+
+.senses_vision_img_game1:hover,
+.senses_hearing_img_game1:hover,
+.senses_touch_img_game1:hover,
+.senses_smell_img_game1:hover,
+.senses_taste_img_game1:hover {
+  box-shadow: rgba(0, 0, 0, 0.95) 0px 5px 15px;
+  border-radius: 100%;
+}

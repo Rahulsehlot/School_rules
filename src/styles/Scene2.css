@@ -1,0 +1,45 @@
+.senses_smell_img_scene2 {
+  width: 15%;
+  position: fixed;
+  bottom: 60%;
+  left: 35%;
+  padding: 5%;
+}
+.senses_taste_img_scene2 {
+  width: 15%;
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  padding: 5%;
+}
+.senses_hearing_img_scene2 {
+  width: 15%;
+  position: fixed;
+  top: 15%;
+  right: 15%;
+  padding: 5%;
+}
+
+.senses_touch_img_scene2 {
+  width: 15%;
+  position: fixed;
+  top: 50%;
+  right: 10%;
+  padding: 5%;
+}
+
+.senses_vision_img_scene2 {
+  width: 15%;
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  padding: 5%;
+}
+
+.senses_character_img_scene2 {
+  width: 25%;
+  position: fixed;
+  top: 20%;
+  right: 30%;
+  padding: 5%;
+}
