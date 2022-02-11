@@ -1,0 +1,73 @@
+.Blue_layyer_wrapper {
+  height: 100%;
+  position: fixed;
+  left: -2%;
+  bottom: 0%;
+  z-index: 0;
+}
+
+.senses_scene3_txt {
+  width: 15%;
+  position: fixed;
+  top: 60%;
+  font-size: 3vw !important;
+  font-weight: 700;
+  left: 12.5%;
+  color: #fff;
+  z-index: 9;
+}
+
+.Eyes_positionProp1 {
+  right: 20%;
+  top: 23%;
+}
+
+.Nose_positionProp1 {
+  right: 35%;
+  top: 25%;
+}
+.Nose_positionProp2 {
+  right: 10%;
+  top: 25%;
+}
+
+.Tongue_positionProp1 {
+  right: 40%;
+  top: 10%;
+  z-index: 1;
+}
+.Tongue_positionProp2 {
+  right: 24%;
+  top: 42%;
+  z-index: 3;
+}
+.Tongue_positionProp3 {
+  right: 8%;
+  top: 10%;
+  z-index: 1;
+}
+
+.Ears_positionProp1 {
+  right: 40%;
+  top: 10%;
+  z-index: 1;
+}
+.Ears_positionProp2 {
+  right: 24%;
+  top: 42%;
+  z-index: 3;
+}
+.Ears_positionProp3 {
+  right: 8%;
+  top: 10%;
+  z-index: 1;
+}
+
+.Skin_positionProp1 {
+  right: 35%;
+  top: 25%;
+}
+.Skin_positionProp2 {
+  right: 10%;
+  top: 25%;
+}

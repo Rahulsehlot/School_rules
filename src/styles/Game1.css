@@ -1,41 +1,80 @@
+.dotted_Line {
+  position: fixed;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50% -50%);
+  height: 40%;
+  width: 80%;
+  z-index: 1;
+}
 .senses_taste_img_game1 {
   width: 15%;
   position: fixed;
-  top: 65%;
-  left: 40%;
+  top: 69%;
+  left: 42%;
+  z-index: 2;
 }
 .senses_smell_img_game1 {
   width: 15%;
   position: fixed;
-  top: 55%;
-  left: 15%;
+  top: 64%;
+  left: 22%;
+  z-index: 2;
 }
 .senses_touch_img_game1 {
   width: 15%;
   position: fixed;
-  top: 20%;
+  top: 44%;
   right: 5%;
+  z-index: 2;
 }
 
 .senses_hearing_img_game1 {
   width: 15%;
   position: fixed;
-  top: 55%;
-  right: 15%;
+  top: 64%;
+  right: 23.5%;
+  z-index: 2;
 }
 
 .senses_vision_img_game1 {
   width: 15%;
   position: fixed;
-  top: 20%;
+  top: 44%;
   left: 5%;
+  z-index: 2;
 }
 
-.senses_vision_img_game1:hover,
-.senses_hearing_img_game1:hover,
-.senses_touch_img_game1:hover,
-.senses_smell_img_game1:hover,
-.senses_taste_img_game1:hover {
-  box-shadow: rgba(0, 0, 0, 0.95) 0px 5px 15px;
-  border-radius: 100%;
+.Game_question {
+  position: fixed;
+  left: 35%;
+  border-radius: 50%;
+  top: 5%;
+  width: 30%;
+}
+
+.audio_replay_icon {
+  position: fixed;
+  right: 2%;
+  top: 81%;
+  width: 9%;
+}
+
+.answer-outline-Panel {
+  width: 12.8vw;
+  position: fixed;
+  top: 44.2%;
+  left: 5.3%;
+  z-index: 2;
+  border-radius: 50%;
+  border: 10px solid red;
+  height: 19vh;
+}
+
+.mouse-move {
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  position: fixed;
 }

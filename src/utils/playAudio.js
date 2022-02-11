@@ -1,20 +1,17 @@
-import { Howl } from 'howler'
+import { Howl } from "howler";
 
 const PlayAudio = (Sound, onEnd = null) => {
-  let bloburl = URL.createObjectURL(Sound)
+  let bloburl = URL.createObjectURL(Sound);
   let sound = new Howl({
     src: [bloburl],
-    format: ['mp3'],
-  })
+    format: ["mp3"],
+  });
 
-  sound.play()
+  sound.play();
 
-  sound.on('play', () => {
-    console.log('asda')
-  })
   if (onEnd) {
-    sound.on('end', onEnd)
+    sound.on("end", onEnd);
   }
-}
+};
 
-export default PlayAudio
+export default PlayAudio;

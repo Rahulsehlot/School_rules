@@ -1,0 +1,50 @@
+.senses_vision_btn {
+  left: 0%;
+}
+.senses_smell_btn {
+  left: 20%;
+}
+
+.senses_taste_btn {
+  left: 40%;
+}
+
+.senses_hearing_btn {
+  left: 60%;
+}
+
+.senses_touch_btn {
+  left: 80%;
+}
+
+.Scene4_lottie_container {
+  background-color: white;
+  position: fixed;
+  width: 20%;
+  height: 35%;
+  border-radius: 100%;
+  left: 38%;
+  top: 5%;
+  align-items: center;
+  justify-content: center;
+  padding: 2%;
+}
+
+.senses_vision_txt {
+  left: 7%;
+}
+
+.senses_smell_txt {
+  left: 27%;
+}
+
+.senses_taste_txt {
+  left: 47%;
+}
+.senses_hearing_txt {
+  left: 67%;
+}
+
+.senses_touch_txt {
+  left: 87%;
+}

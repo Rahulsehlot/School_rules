@@ -1,9 +1,9 @@
-const imgUrl = '/internal/images/'
-const soundUrl = '/internal/sounds/'
-const lottieUrl = '/internal/lottie/'
+const imgUrl = "internal/images/";
+const soundUrl = "internal/sounds/";
+const lottieUrl = "internal/lottie/";
 
 const IntroMap = {
-  id: 'intro',
+  id: "intro",
 
   Bg: `${imgUrl}Intro-bg.svg`,
 
@@ -14,13 +14,12 @@ const IntroMap = {
     `${imgUrl}Hearing.svg`,
     `${imgUrl}Touch.svg`,
     `${imgUrl}Vision.svg`,
-    `${imgUrl}Character.svg`,
     `${imgUrl}btn.svg`,
   ],
 
   sounds: [`${soundUrl}Intro_sound.mp3`],
 
   lottie: [`${lottieUrl}Scene_01.json`],
-}
+};
 
-export default IntroMap
+export default IntroMap;

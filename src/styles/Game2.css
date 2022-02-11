@@ -1,0 +1,33 @@
+.Game2_question_img {
+  position: fixed;
+  left: 40%;
+  top: 5%;
+  transform: translate(-50% -50%);
+  width: 20%;
+  z-index: 2;
+}
+
+.Option1 {
+  position: fixed;
+  left: 5%;
+  top: 30%;
+  transform: translate(-50% -50%);
+  width: 40%;
+  height: 60%;
+  z-index: 1;
+  background-color: white;
+  border: 8px solid #25256d;
+  border-radius: 40px;
+}
+.Option2 {
+  position: fixed;
+  right: 5%;
+  top: 30%;
+  transform: translate(-50% -50%);
+  width: 40%;
+  height: 60%;
+  z-index: 1;
+  background-color: white;
+  border: 8px solid #25256d;
+  border-radius: 40px;
+}
