@@ -25,6 +25,8 @@ const IntroMap = {
     `${imgUrl}Organs_images/Speaker-sound.svg`,
     `${imgUrl}Organs_images/Touching-cat.svg`,
     `${imgUrl}Organs_images/Touching-stone.svg`,
+    `${imgUrl}next.svg`,
+    `${imgUrl}back.svg`,
   ],
 
   sounds: [

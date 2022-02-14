@@ -16,7 +16,7 @@
   height: 60%;
   z-index: 1;
   background-color: white;
-  border: 8px solid #25256d;
+  border: 8px solid;
   border-radius: 40px;
 }
 .Option2 {
@@ -28,6 +28,6 @@
   height: 60%;
   z-index: 1;
   background-color: white;
-  border: 8px solid #25256d;
+  border: 8px solid;
   border-radius: 40px;
 }

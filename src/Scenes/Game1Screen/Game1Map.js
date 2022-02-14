@@ -30,6 +30,7 @@ const IntroMap = {
     `${imgUrl}Organs_images/Lemon_Tongue.svg`,
     `${imgUrl}Organs_images/Grass_Skin.svg`,
     `${imgUrl}Audio_replay_button.svg`,
+    `${imgUrl}Hand_Icon.svg`,
   ],
 
   sounds: [

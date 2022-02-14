@@ -2,7 +2,7 @@
   width: 45%;
   position: fixed;
   top: 10%;
-  left: 28%;
+  left: 26%;
 }
 
 .senses_smell_img {
@@ -41,9 +41,14 @@
 .play_btn {
   position: fixed;
   bottom: 5%;
-  left: 93%;
-  width: 5%;
+  left: 92%;
+  width: 8%;
   cursor: pointer;
+}
+
+.play_btn:active {
+  border-radius: 50%;
+  transform: scale(0.95);
 }
 
 .senses_smell {
@@ -52,7 +57,7 @@
   top: 87%;
   font-size: 3vw !important;
   font-weight: 700;
-  right: 3.5%;
+  right: 6%;
   color: #fff;
 }
 
@@ -62,7 +67,7 @@
   top: 42.5%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 11%;
+  left: 9%;
   color: #fff;
 }
 
@@ -72,7 +77,7 @@
   top: 42.5%;
   font-size: 3vw !important;
   font-weight: 700;
-  right: 6.5%;
+  right: 8%;
   color: #fff;
 }
 
@@ -82,7 +87,7 @@
   top: 87%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 11%;
+  left: 9%;
   color: #fff;
 }
 
@@ -92,6 +97,6 @@
   top: 87%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 46%;
+  left: 45%;
   color: #fff;
 }

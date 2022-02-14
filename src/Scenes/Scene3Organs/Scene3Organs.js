@@ -22,29 +22,82 @@ export default function Scene3Organs({
   const { intro } = Assets;
   const Ref = useRef(null);
   const [name, setName] = useState("");
+  const [triggered, setTriggered] = useState(false);
+  const [sound1, setSound1] = useState(null);
 
   useEffect(() => {
-    setName(IntroMap.select[next]);
-    if (Assets?.Scene3 && !Loading) {
-      Assets?.Scene3?.sounds[soundId]?.play();
-      Assets?.Scene3?.sounds[soundId].on("end", () => {
-        if (next < 4) {
-          const nxtitem = next + 1;
-          const item = IntroMap.select[nxtitem];
-          setName(item);
-          setNext(nxtitem);
-          console.log(item);
-          console.log(next);
-          const samp = "/" + item + "_Scene3";
-          console.log(samp);
-          setSceneId(samp);
-        } else {
-          setSceneId("/Scene4");
-        }
-      });
+    const sound_1 = Assets?.Scene3?.sounds[soundId];
+    if (sound_1) {
+      setSound1(sound_1);
     }
   }, [Assets, Loading, isLoading]);
 
+  useEffect(() => {
+    setName(IntroMap.select[next]);
+    if (sound1) {
+      sound1?.play();
+      // sound1?.on("end", () => {
+      //   if (next < 4) {
+      //     const nxtitem = next + 1;
+      //     const item = IntroMap.select[nxtitem];
+      //     setName(item);
+      //     setNext(nxtitem);
+      //     const samp = "/" + item + "_Scene3";
+      //     if (triggered === false) {
+      //       setSceneId(samp);
+      //     }
+      //   } else {
+      //     if (triggered === false) {
+      //       setSceneId("/Scene4");
+      //     }
+      //   }
+      // });
+    }
+  }, [sound1]);
+
+  const back = () => {
+    if (sound1) {
+      sound1?.stop();
+    }
+    setTriggered(true);
+    if (sound1) {
+      sound1?.stop();
+      if (next > 0) {
+        const nxtitem = next - 1;
+        console.log(next);
+        const item = IntroMap.select[nxtitem];
+        setNext(nxtitem);
+        console.log(nxtitem);
+        const samp = "/" + item + "_Scene3";
+        setSceneId(samp);
+        console.log(samp);
+      }
+    }
+  };
+
+  const forward = () => {
+    if (sound1) {
+      sound1?.stop();
+    }
+
+    setTriggered(true);
+    if (sound1) {
+      sound1?.stop();
+      if (next < 4) {
+        const nxtitem = next + 1;
+        console.log(next);
+        const item = IntroMap.select[nxtitem];
+        setNext(nxtitem);
+        console.log(nxtitem);
+        const samp = "/" + item + "_Scene3";
+        setSceneId(samp);
+      } else {
+        setSceneId("/Scene4");
+      }
+    }
+  };
+
+  console.log(triggered);
   return (
     <Scenes
       Bg={Bg}
@@ -93,6 +146,22 @@ export default function Scene3Organs({
           <div id="fadeup" className="senses_scene3_txt">
             {name}
           </div>
+
+          <Image
+            src={Assets?.Scene3?.sprites[17]}
+            alt="txt"
+            id="fadeup"
+            className="next"
+            onClick={forward}
+          />
+          <Image
+            src={Assets?.Scene3?.sprites[18]}
+            alt="txt"
+            id="fadeup"
+            className="back"
+            onClick={back}
+          />
+
           {/* Title */}
         </>
       }

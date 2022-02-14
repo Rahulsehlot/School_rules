@@ -7,13 +7,15 @@
 }
 
 .senses_scene3_txt {
-  width: 15%;
+  width: 34%;
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 60%;
   font-size: 3vw !important;
   font-weight: 700;
-  left: 12.5%;
-  color: #fff;
+  left: 0.25%;
+  color: black;
   z-index: 9;
 }
 
@@ -70,4 +72,20 @@
 .Skin_positionProp2 {
   right: 10%;
   top: 25%;
+}
+
+.back {
+  position: fixed;
+  left: 2%;
+  bottom: 5%;
+  z-index: 5;
+  width: 7%;
+}
+
+.next {
+  position: fixed;
+  right: 2%;
+  bottom: 5%;
+  z-index: 5;
+  width: 7%;
 }

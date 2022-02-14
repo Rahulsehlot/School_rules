@@ -19,7 +19,6 @@ export default function Game1({ counter, setCounter }) {
   const [s1, setS1] = useState(0);
   const [helper, setHelper] = useState(0);
   const [playing, setplaying] = useState(false);
-
   useEffect(() => {
     const G1 = counter;
     setHelper(G1);
@@ -190,36 +189,39 @@ export default function Game1({ counter, setCounter }) {
     }
   };
 
-  const [moved, setMoved] = useState(1);
-  console.log(moved);
-  function handleMouseMove() {
-    setMoved(1);
-    console.log(moved);
-  }
+  // const [moved, setMoved] = useState(1);
+  // console.log(moved);
+  // function handleMouseMove() {
+  //   setMoved(1);
+  //   console.log(moved);
+  // }
+
+  // useEffect(() => {
+  //   if (playing === false) {
+  //     const timeout = setTimeout(() => {
+  //       setMoved(0);
+  //     }, 12000);
+  //     if (moved === 0) {
+  //       playTimer();
+  //     }
+  //   }
+  // }, [moved]);
+
+  // const playTimer = () => {
+  //   if (Assets?.Scene2 && !Loading) {
+  //     Assets?.Scene2?.sounds[18]?.play();
+
+  //     // Sound.play();
+
+  //     Assets?.Scene2?.sounds[18].on("end", () => {});
+  //   }
+  // };
 
   useEffect(() => {
-    if (playing === false) {
-      const timeout = setTimeout(() => {
-        setMoved(0);
-      }, 12000);
-      if (moved === 0) {
-        playTimer();
-      }
-    }
-  }, [moved]);
+    const imageLoad = Assets?.Scene2?.sprites[21];
+    console.log(imageLoad);
+  }, [Assets, Loading, isLoading]);
 
-  const playTimer = () => {
-    if (Assets?.Scene2 && !Loading) {
-      setplaying(true);
-      Assets?.Scene2?.sounds[18]?.play();
-
-      // Sound.play();
-
-      Assets?.Scene2?.sounds[18].on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
   return (
     <Scenes
       Bg={Bg}
@@ -227,7 +229,7 @@ export default function Game1({ counter, setCounter }) {
         <>
           {/* Title */}
 
-          <div className="mouse-move" onMouseMove={handleMouseMove}></div>
+          {/* <div className="mouse-move" onMouseMove={handleMouseMove}></div> */}
 
           <Image
             src={Assets?.Scene2?.sprites[G1ImgID]}
@@ -250,6 +252,7 @@ export default function Game1({ counter, setCounter }) {
             id="fadeup"
             className="senses_taste_img_game1"
             onClick={Tongue}
+            style={{}}
           />
           <Image
             src={Assets?.Scene2?.sprites[2]}

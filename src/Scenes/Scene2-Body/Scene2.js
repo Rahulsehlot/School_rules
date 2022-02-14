@@ -56,8 +56,8 @@ export default function Scene2() {
             id="fadeup"
             className="senses_smell_img"
           />
-          <div id="fadeup" className="senses_smell">
-            Smell
+          <div id="fadeup" className="senses_smell" style={{ right: "4%" }}>
+            smell
           </div>
           <Image
             src={Assets?.Scene2?.sprites[1]}
@@ -65,8 +65,8 @@ export default function Scene2() {
             id="fadeup"
             className="senses_taste_img"
           />
-          <div id="fadeup" className="senses_taste">
-            Taste
+          <div id="fadeup" className="senses_taste" style={{ left: "10%" }}>
+            taste
           </div>
 
           <Image
@@ -75,8 +75,8 @@ export default function Scene2() {
             id="fadeup"
             className="senses_hearing_img"
           />
-          <div id="fadeup" className="senses_hearing">
-            Hear
+          <div id="fadeup" className="senses_hearing" style={{ right: "4%" }}>
+            hear
           </div>
 
           <Image
@@ -85,8 +85,8 @@ export default function Scene2() {
             id="fadeup"
             className="senses_touch_img"
           />
-          <div id="fadeup" className="senses_touch">
-            Touch
+          <div id="fadeup" className="senses_touch" style={{ left: "10%" }}>
+            touch
           </div>
 
           <Image
@@ -99,7 +99,7 @@ export default function Scene2() {
             }}
           />
           <div id="fadeup" className="senses_vision" style={{ top: "40.5%" }}>
-            Vision
+            vision
           </div>
 
           <div ref={Ref} className="intro_lottie_container"></div>

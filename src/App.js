@@ -18,7 +18,7 @@ function App() {
   const [counter, setCounter] = useState(6);
   const [Organcounter, setOrganCounter] = useState(0);
   const [G2Ans, setG2Ans] = useState(5);
-  const [G2Wrng, setG2Wrng] = useState(0);
+  const [G2Wrng, setG2Wrng] = useState(31);
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);

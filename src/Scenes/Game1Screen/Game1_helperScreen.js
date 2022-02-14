@@ -190,36 +190,33 @@ export default function Game1({ counter, setCounter }) {
     }
   };
 
-  const [moved, setMoved] = useState(0);
-  console.log(moved);
-  function handleMouseMove() {
-    setMoved(1);
-    console.log(moved);
-  }
+  // const [moved, setMoved] = useState(0);
+  // console.log(moved);
+  // function handleMouseMove() {
+  //   setMoved(1);
+  //   console.log(moved);
+  // }
 
-  useEffect(() => {
-    if (playing === false) {
-      const timeout = setTimeout(() => {
-        setMoved(0);
-      }, 12000);
-      if (moved === 0) {
-        playTimer();
-      }
-    }
-  }, [moved]);
+  // useEffect(() => {
+  //   if (playing === false) {
+  //     const timeout = setTimeout(() => {
+  //       setMoved(0);
+  //     }, 12000);
+  //     if (moved === 0) {
+  //       playTimer();
+  //     }
+  //   }
+  // }, [moved]);
 
-  const playTimer = () => {
-    if (Assets?.Scene2 && !Loading) {
-      setplaying(true);
-      Assets?.Scene2?.sounds[18]?.play();
+  // const playTimer = () => {
+  //   if (Assets?.Scene2 && !Loading) {
+  //     Assets?.Scene2?.sounds[18]?.play();
 
-      // Sound.play();
+  //     // Sound.play();
 
-      Assets?.Scene2?.sounds[18].on("end", () => {
-        setplaying(false);
-      });
-    }
-  };
+  //     Assets?.Scene2?.sounds[18].on("end", () => {});
+  //   }
+  // };
   return (
     <Scenes
       Bg={Bg}
@@ -227,9 +224,7 @@ export default function Game1({ counter, setCounter }) {
         <>
           {/* Title */}
 
-          <div className="mouse-move" onMouseMove={handleMouseMove}>
-            .
-          </div>
+          {/* <div className="mouse-move" onMouseMove={handleMouseMove}></div> */}
 
           <Image
             src={Assets?.Scene2?.sprites[G1ImgID]}
@@ -238,15 +233,13 @@ export default function Game1({ counter, setCounter }) {
             className="Game_question"
           />
 
-          <div className="answer-outline-Panel">
-            <Image
-              src={Assets?.Scene2?.sprites[0]}
-              alt="txt"
-              id="fadeup"
-              className="senses_smell_img_game1"
-              onClick={Nose}
-            />
-          </div>
+          <Image
+            src={Assets?.Scene2?.sprites[0]}
+            alt="txt"
+            id="fadeup"
+            className="senses_smell_img_game1"
+            onClick={Nose}
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[1]}
