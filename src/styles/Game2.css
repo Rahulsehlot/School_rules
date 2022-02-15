@@ -9,8 +9,8 @@
 
 .Option1 {
   position: fixed;
-  left: 5%;
-  top: 30%;
+  left: 10%;
+  top: 20%;
   transform: translate(-50% -50%);
   width: 40%;
   height: 60%;
@@ -21,8 +21,8 @@
 }
 .Option2 {
   position: fixed;
-  right: 5%;
-  top: 30%;
+  right: 10%;
+  top: 20%;
   transform: translate(-50% -50%);
   width: 40%;
   height: 60%;
@@ -30,4 +30,20 @@
   background-color: white;
   border: 8px solid;
   border-radius: 40px;
+}
+
+.audio_replay_icon_Game2 {
+  position: fixed;
+  right: 2%;
+  top: 83%;
+  width: 9%;
+  /* background-color: aqua; */
+  border-radius: 50%;
+}
+.audio_replay_icon_Game2:active {
+  border-radius: 50%;
+  transform: scale(0.98);
+  /* Scaling button to 0.98 to its original size */
+  /* box-shadow: inset 3px 2px 22px 1px rgba(0.75, 0.25, 0.25, 0.24); */
+  /* Lowering the shadow */
 }

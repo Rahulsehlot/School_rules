@@ -22,36 +22,29 @@ export default function Scene6() {
     }
   }, [Assets, Loading, isLoading]);
 
-  useEffect(() => {
-    if (Assets && Ref.current && !Loading) {
-      try {
-        lottie.loadAnimation({
-          name: "placeholder",
-          container: Ref.current,
-          renderer: "svg",
-          loop: true,
-          autoplay: true,
-          animationData: Assets?.Scene2?.lottie[0],
-        });
-      } catch (err) {
-        console.log(err);
-      }
+  const replayBtn = () => {};
+
+  const RetryGame = () => {
+    if (Assets?.Scene2 && !Loading) {
+      Assets?.Scene2?.sounds[1].play();
+      Assets?.Scene2?.sounds[1].on("end", () => {
+        setSceneId("/");
+      });
     }
-  }, [Assets, Loading]);
-
-  const btn_style = {
-    width: "20%",
-    position: "fixed",
-    bottom: "10%",
   };
 
-  const txt_style = {
-    width: "20%",
-    position: "fixed",
-    bottom: "45%",
-    fontSize: "4vmin",
-    fontWeight: "700",
-  };
-
-  return <Scenes Bg={Bg} />;
+  return (
+    <Scenes
+      Bg={Bg}
+      sprites={
+        <Image
+          src={Assets?.Scene2?.sprites[0]}
+          alt="txt"
+          id="fadeup"
+          className="audio_replay_icon_scene6"
+          onClick={RetryGame}
+        />
+      }
+    />
+  );
 }

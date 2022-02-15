@@ -7,9 +7,9 @@ const IntroMap = {
 
   Bg: `${imgUrl}Welldone_BG.svg`,
 
-  sprites: [],
+  sprites: [`${imgUrl}replay_btn.svg`],
 
-  sounds: [`${soundUrl}well_done.mp3`],
+  sounds: [`${soundUrl}well_done.mp3`, `${soundUrl}mouse-click.mp3`],
 
   lottie: [],
 };

@@ -36,22 +36,22 @@ export default function Scene3Organs({
     setName(IntroMap.select[next]);
     if (sound1) {
       sound1?.play();
-      // sound1?.on("end", () => {
-      //   if (next < 4) {
-      //     const nxtitem = next + 1;
-      //     const item = IntroMap.select[nxtitem];
-      //     setName(item);
-      //     setNext(nxtitem);
-      //     const samp = "/" + item + "_Scene3";
-      //     if (triggered === false) {
-      //       setSceneId(samp);
-      //     }
-      //   } else {
-      //     if (triggered === false) {
-      //       setSceneId("/Scene4");
-      //     }
-      //   }
-      // });
+      sound1?.on("end", () => {
+        if (next < 4) {
+          const nxtitem = next + 1;
+          const item = IntroMap.select[nxtitem];
+          setName(item);
+          setNext(nxtitem);
+          const samp = "/" + item + "_Scene3";
+          if (triggered === false) {
+            setSceneId(samp);
+          }
+        } else {
+          if (triggered === false) {
+            setSceneId("/Scene4");
+          }
+        }
+      });
     }
   }, [sound1]);
 
@@ -144,7 +144,7 @@ export default function Scene3Organs({
             style={{ position: "fixed", width: "20%" }}
           />
           <div id="fadeup" className="senses_scene3_txt">
-            {name}
+            {name.toLowerCase()}
           </div>
 
           <Image

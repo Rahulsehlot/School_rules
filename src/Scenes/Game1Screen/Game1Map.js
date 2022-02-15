@@ -31,6 +31,8 @@ const IntroMap = {
     `${imgUrl}Organs_images/Grass_Skin.svg`,
     `${imgUrl}Audio_replay_button.svg`,
     `${imgUrl}Hand_Icon.svg`,
+    `${imgUrl}Button_Icon_Green_Highlight.svg`,
+    `${imgUrl}Button_Icon_Red_Highlight.svg`,
   ],
 
   sounds: [
@@ -53,6 +55,7 @@ const IntroMap = {
     `${soundUrl}great_work.mp3`,
     `${soundUrl}try_again.mp3`,
     `${soundUrl}countdown.mp3`,
+    `${soundUrl}mouse-click.mp3`,
   ],
 
   lottie: [],

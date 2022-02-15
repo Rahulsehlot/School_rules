@@ -119,6 +119,25 @@ export default function Game2({
     }, 1000);
   }, [option2Wrng]);
 
+  const replayBtn = () => {
+    if (playing === false) {
+      if (Assets?.Scene2 && !Loading) {
+        setplaying(true);
+        Assets?.Scene2?.sounds[8].play();
+        Assets?.Scene2?.sounds[8].on("end", () => {
+          if (playing === false) {
+            if (Assets?.Scene2 && !Loading) {
+              Assets?.Scene2?.sounds[flowCount + 1].play();
+              Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
+                setplaying(false);
+              });
+            }
+          }
+        });
+      }
+    }
+  };
+
   return (
     <Scenes
       Bg={Bg}
@@ -154,6 +173,13 @@ export default function Game2({
               left: number === 1 ? "54%" : "5%",
               borderColor: option2Wrng === 1 ? "Red" : "#25256d",
             }}
+          />
+          <Image
+            src={Assets?.Scene2?.sprites[56]}
+            alt="txt"
+            id="fadeup"
+            className="audio_replay_icon_Game2"
+            onClick={replayBtn}
           />
         </>
       }

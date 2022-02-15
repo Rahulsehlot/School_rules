@@ -14,12 +14,29 @@
   left: 42%;
   z-index: 2;
 }
+
+.Taste_Button {
+  width: 18.5%;
+  position: fixed;
+  top: 66%;
+  left: 40.25%;
+  z-index: 3;
+}
+
 .senses_smell_img_game1 {
   width: 15%;
   position: fixed;
   top: 64%;
   left: 22%;
   z-index: 2;
+}
+
+.Nose_Button {
+  width: 18.5%;
+  position: fixed;
+  top: 61%;
+  left: 20.25%;
+  z-index: 3;
 }
 .senses_touch_img_game1 {
   width: 15%;
@@ -29,12 +46,28 @@
   z-index: 2;
 }
 
+.Touch_Button {
+  width: 18.5%;
+  position: fixed;
+  top: 40.75%;
+  right: 3.3%;
+  z-index: 3;
+}
+
 .senses_hearing_img_game1 {
   width: 15%;
   position: fixed;
   top: 64%;
   right: 23.5%;
   z-index: 2;
+}
+
+.Hearing_Button {
+  width: 18.5%;
+  position: fixed;
+  top: 61%;
+  right: 21.75%;
+  z-index: 3;
 }
 
 /* body {
@@ -48,6 +81,14 @@
   top: 44%;
   left: 5%;
   z-index: 2;
+}
+
+.Vision_Button {
+  width: 18.5%;
+  position: fixed;
+  top: 40.75%;
+  left: 3.3%;
+  z-index: 3;
 }
 
 .Game_question {
@@ -71,7 +112,14 @@
 .senses_smell_img_game1:active,
 .senses_touch_img_game1:active,
 .senses_hearing_img_game1:active,
-.senses_vision_img_game1:active,
+.senses_vision_img_game1:active {
+  border-radius: 50%;
+  transform: scale(0.95);
+  /* Scaling button to 0.98 to its original size */
+  /* box-shadow: inset 3px 2px 22px 1px rgba(0.75, 0.25, 0.25, 0.24); */
+  /* Lowering the shadow */
+}
+
 .audio_replay_icon:active {
   border-radius: 50%;
   transform: scale(0.98);
@@ -92,6 +140,14 @@
 }
 
 .Image {
+  position: fixed;
+  left: 0%;
+  top: 0%;
+}
+
+.mouse-move {
+  width: 100%;
+  height: 100%;
   position: fixed;
   left: 0%;
   top: 0%;

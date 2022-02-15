@@ -64,6 +64,7 @@ const IntroMap = {
     `${imgUrl}Game2_Images/Skin/Shirt_Skin.svg`,
     `${imgUrl}Game2_Images/Skin/Teddy_Skin.svg`,
     `${imgUrl}Game2_Images/Eye/Sun_Eye.svg`,
+    `${imgUrl}Audio_replay_button.svg`,
   ],
 
   sounds: [
@@ -75,6 +76,7 @@ const IntroMap = {
     `${soundUrl}game2-sounds/sense-of-touch.mp3`,
     `${soundUrl}correct-answer-Game2.mp3`,
     `${soundUrl}wrong-answer-Game2.mp3`,
+    `${soundUrl}mouse-click.mp3`,
   ],
 
   lottie: [],

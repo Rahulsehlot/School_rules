@@ -48,3 +48,12 @@
 .senses_touch_txt {
   left: 87%;
 }
+
+.audio_replay_icon_scene6 {
+  position: fixed;
+  right: 2%;
+  top: 83%;
+  width: 8%;
+  /* background-color: aqua; */
+  border-radius: 50%;
+}
