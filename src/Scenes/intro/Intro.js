@@ -4,7 +4,6 @@ import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
 import PlayAudio from "../../utils/playAudio";
 import IntroMap from "./AssetMap";
-import lottie from "lottie-web";
 import "../../styles/intro.css";
 import Image from "../../utils/elements/Image";
 
