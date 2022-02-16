@@ -8,13 +8,17 @@ import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 
-export default function Scene2() {
+export default function Scene2({ scenename }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
+
+  const stop_all_sounds = () => {
+    Assets[scenename]?.sounds?.map((v) => v?.stop());
+  };
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
@@ -41,6 +45,11 @@ export default function Scene2() {
       }
     }
   }, [Assets, Loading]);
+
+  const forward = () => {
+    stop_all_sounds();
+    setSceneId("/Eyes_Scene3");
+  };
 
   console.log(Assets?.Scene2?.lottie);
   return (
@@ -103,6 +112,14 @@ export default function Scene2() {
           </div>
 
           <div ref={Ref} className="intro_lottie_container"></div>
+          <Image
+            src={Assets?.Scene2?.sprites[6]}
+            alt="txt"
+            id="fadeup"
+            className="next"
+            onClick={forward}
+            style={{ cursor: "pointer" }}
+          />
         </>
       }
     />

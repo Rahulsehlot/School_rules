@@ -8,7 +8,12 @@ import lottie from "lottie-web";
 import "../../styles/Game1.css";
 import Image from "../../utils/elements/Image";
 
-export default function Game1({ counter, setCounter }) {
+export default function Game1({
+  counter,
+  setCounter,
+  scenename,
+  countdownSound,
+}) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -30,6 +35,12 @@ export default function Game1({ counter, setCounter }) {
   const [tongueButtonWrng, settongueButtonWrng] = useState(0);
   const [skinButtonWrng, setskinButtonWrng] = useState(0);
 
+  const stop_all_sounds = () => {
+    Assets[scenename]?.sounds?.map((v) => v?.stop());
+  };
+
+  console.log(Assets, scenename);
+
   useEffect(() => {
     const G1 = counter;
     setHelper(G1);
@@ -45,17 +56,16 @@ export default function Game1({ counter, setCounter }) {
 
   console.log(helper);
 
-  const [timer, setTimer] = useState(0);
-  const [sound1, setSound1] = useState(null);
+  console.log(scenename);
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
-
       Assets?.Scene2?.sounds[G1SoundId].play();
       Assets?.Scene2?.sounds[G1SoundId].on("end", () => {
         const timeout = setTimeout(() => {
-          Assets?.Scene2?.sounds[18].play();
+          countdownSound.play();
+          console.log(countdownSound);
         }, 10000);
         setplaying(false);
       });
@@ -68,7 +78,6 @@ export default function Game1({ counter, setCounter }) {
       Assets?.Scene2?.sounds[16].play();
       Assets?.Scene2?.sounds[16].on("end", () => {
         setSceneId("/Game1_Helper");
-
         setplaying(false);
       });
     }
@@ -115,7 +124,10 @@ export default function Game1({ counter, setCounter }) {
         .replace(".svg", "");
       console.log(verify);
       if (verify === "Nose") {
+        countdownSound.stop();
+
         console.log("Right");
+        countdownSound.stop();
         setS1(counter + 1);
         playCorrectSound();
         setnoseButtonCrct(1);
@@ -139,6 +151,8 @@ export default function Game1({ counter, setCounter }) {
         .replace(".svg", "");
       console.log(verify);
       if (verify === "Tongue") {
+        countdownSound.stop();
+
         console.log("Right");
         setS1(counter + 1);
         settongueButtonCrct(1);
@@ -163,6 +177,8 @@ export default function Game1({ counter, setCounter }) {
         .replace(".svg", "");
       console.log(verify);
       if (verify === "Ear") {
+        countdownSound.stop();
+
         console.log("Right");
         setS1(counter + 1);
         playCorrectSound();
@@ -187,6 +203,8 @@ export default function Game1({ counter, setCounter }) {
         .replace(".svg", "");
       console.log(verify);
       if (verify === "Skin") {
+        countdownSound.stop();
+
         console.log("Right");
         setS1(counter + 1);
         playCorrectSound();
@@ -212,6 +230,7 @@ export default function Game1({ counter, setCounter }) {
       console.log(verify);
       if (verify === "Eye") {
         console.log("Right");
+        countdownSound.stop();
         setS1(counter + 1);
         playCorrectSound();
         setEyeButtonCrct(1);

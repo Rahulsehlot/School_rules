@@ -25,6 +25,7 @@ function App() {
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
+  const [countdownSound, SetcountdownSound] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,6 +35,7 @@ function App() {
   }, []);
 
   const loadAudio = async () => {
+    SetcountdownSound(await AudioPlayer2("internal/sounds/countdown.mp3"));
     setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"));
     seticon1(await LoadImage("internal/images/sound.svg"));
     seticon2(await LoadImage("internal/images/nosound.svg"));
@@ -83,7 +85,7 @@ function App() {
         <Intro />
       </Router>
       <Router sceneId="/Scene2">
-        <Scene2 />
+        <Scene2 scenename={"Scene2"} />
       </Router>
       <Router sceneId="/Eyes_Scene3">
         <Scene3Organs
@@ -205,10 +207,20 @@ function App() {
         />
       </Router>
       <Router sceneId="/Game1">
-        <Game1 counter={counter} setCounter={setCounter} />
+        <Game1
+          counter={counter}
+          setCounter={setCounter}
+          scenename={"Scene2"}
+          countdownSound={countdownSound}
+        />
       </Router>
       <Router sceneId="/Game1_Helper">
-        <Game1_Helper counter={counter} setCounter={setCounter} />
+        <Game1_Helper
+          counter={counter}
+          setCounter={setCounter}
+          scenename={"Scene2"}
+          countdownSound={countdownSound}
+        />
       </Router>
     </GameContainer>
   );
