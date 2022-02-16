@@ -15,6 +15,7 @@ export default function Game2({
   G2Wrng,
   setG2Wrng,
   G2answer,
+  countdownSound,
 }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -72,6 +73,8 @@ export default function Game2({
     if (answer < 30) {
       if (playing === false) {
         console.log("Corrrect");
+        countdownSound.stop();
+
         playCorrectSound();
         const item = IntroMap.sprites[answer + 1].split("_");
         const item1 = item[2].replace(".svg", "");
@@ -108,6 +111,11 @@ export default function Game2({
 
       Assets?.Scene2?.sounds[flowCount + 1]?.play();
       Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
+        const timeout = setTimeout(() => {
+          countdownSound.play();
+          console.log(countdownSound);
+        }, 10000);
+
         setplaying(false);
       });
     }

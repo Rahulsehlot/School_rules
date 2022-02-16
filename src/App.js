@@ -164,6 +164,7 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Eye"}
           flowCount={0}
+          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Nose_Game2">
@@ -174,6 +175,7 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Nose"}
           flowCount={1}
+          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Ear_Game2">
@@ -184,6 +186,7 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Ear"}
           flowCount={2}
+          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Tongue_Game2">
@@ -194,6 +197,7 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Tongue"}
           flowCount={3}
+          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Skin_Game2">
@@ -204,6 +208,7 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Skin"}
           flowCount={4}
+          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Game1">
