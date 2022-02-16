@@ -69,7 +69,7 @@ export default function Game2({
   };
 
   const Option1 = () => {
-    if (answer < 29) {
+    if (answer < 30) {
       if (playing === false) {
         console.log("Corrrect");
         playCorrectSound();
@@ -160,6 +160,8 @@ export default function Game2({
             style={{
               left: number === 1 ? "5%" : "54%",
               borderColor: option1Verify === 1 ? "Green" : "#25256d",
+
+              cursor: "pointer",
             }}
           />
 
@@ -172,6 +174,7 @@ export default function Game2({
             style={{
               left: number === 1 ? "54%" : "5%",
               borderColor: option2Wrng === 1 ? "Red" : "#25256d",
+              cursor: "pointer",
             }}
           />
           <Image
@@ -180,6 +183,7 @@ export default function Game2({
             id="fadeup"
             className="audio_replay_icon_Game2"
             onClick={replayBtn}
+            style={{ cursor: "pointer" }}
           />
         </>
       }

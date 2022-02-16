@@ -104,6 +104,7 @@ export default function Intro() {
               alignItems: "center",
               justifyContent: "center",
               display: "flex",
+              cursor: "pointer",
             }}
           />
         </>

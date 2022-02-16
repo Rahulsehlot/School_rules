@@ -15,6 +15,7 @@ export default function Scene3Organs({
   soundId,
   PropId,
   position,
+  scenename,
 }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -23,20 +24,16 @@ export default function Scene3Organs({
   const Ref = useRef(null);
   const [name, setName] = useState("");
   const [triggered, setTriggered] = useState(false);
-  const [sound1, setSound1] = useState(null);
 
-  useEffect(() => {
-    const sound_1 = Assets?.Scene3?.sounds[soundId];
-    if (sound_1) {
-      setSound1(sound_1);
-    }
-  }, [Assets, Loading, isLoading]);
+  const stop_all_sounds = () => {
+    Assets[scenename]?.sounds?.map((v) => v?.stop());
+  };
 
   useEffect(() => {
     setName(IntroMap.select[next]);
-    if (sound1) {
-      sound1?.play();
-      sound1?.on("end", () => {
+    if (Assets?.Scene3 && !Loading) {
+      Assets?.Scene3?.sounds[soundId].play();
+      Assets?.Scene3?.sounds[soundId].on("end", () => {
         if (next < 4) {
           const nxtitem = next + 1;
           const item = IntroMap.select[nxtitem];
@@ -53,47 +50,35 @@ export default function Scene3Organs({
         }
       });
     }
-  }, [sound1]);
+  }, [Assets, Loading, isLoading]);
 
   const back = () => {
-    if (sound1) {
-      sound1?.stop();
-    }
     setTriggered(true);
-    if (sound1) {
-      sound1?.stop();
-      if (next > 0) {
-        const nxtitem = next - 1;
-        console.log(next);
-        const item = IntroMap.select[nxtitem];
-        setNext(nxtitem);
-        console.log(nxtitem);
-        const samp = "/" + item + "_Scene3";
-        setSceneId(samp);
-        console.log(samp);
-      }
+    stop_all_sounds();
+    if (next > 0) {
+      const nxtitem = next - 1;
+      console.log(next);
+      const item = IntroMap.select[nxtitem];
+      setNext(nxtitem);
+      console.log(nxtitem);
+      const samp = "/" + item + "_Scene3";
+      setSceneId(samp);
+      console.log(samp);
     }
   };
 
   const forward = () => {
-    if (sound1) {
-      sound1?.stop();
-    }
-
-    setTriggered(true);
-    if (sound1) {
-      sound1?.stop();
-      if (next < 4) {
-        const nxtitem = next + 1;
-        console.log(next);
-        const item = IntroMap.select[nxtitem];
-        setNext(nxtitem);
-        console.log(nxtitem);
-        const samp = "/" + item + "_Scene3";
-        setSceneId(samp);
-      } else {
-        setSceneId("/Scene4");
-      }
+    stop_all_sounds();
+    if (next < 4) {
+      const nxtitem = next + 1;
+      console.log(next);
+      const item = IntroMap.select[nxtitem];
+      setNext(nxtitem);
+      console.log(nxtitem);
+      const samp = "/" + item + "_Scene3";
+      setSceneId(samp);
+    } else {
+      setSceneId("/Scene4");
     }
   };
 
@@ -153,6 +138,7 @@ export default function Scene3Organs({
             id="fadeup"
             className="next"
             onClick={forward}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene3?.sprites[18]}
@@ -160,6 +146,7 @@ export default function Scene3Organs({
             id="fadeup"
             className="back"
             onClick={back}
+            style={{ cursor: "pointer" }}
           />
 
           {/* Title */}

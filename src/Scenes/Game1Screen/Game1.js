@@ -47,10 +47,6 @@ export default function Game1({ counter, setCounter }) {
 
   const [timer, setTimer] = useState(0);
   const [sound1, setSound1] = useState(null);
-  useEffect(() => {
-    const sound_1 = Assets?.Scene2?.sounds[18];
-    setSound1(sound_1);
-  }, [Assets, Loading, isLoading]);
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
@@ -59,19 +55,12 @@ export default function Game1({ counter, setCounter }) {
       Assets?.Scene2?.sounds[G1SoundId].play();
       Assets?.Scene2?.sounds[G1SoundId].on("end", () => {
         const timeout = setTimeout(() => {
-          countdown();
+          Assets?.Scene2?.sounds[18].play();
         }, 10000);
         setplaying(false);
       });
     }
   }, [Assets, Loading, isLoading]);
-
-  const countdown = () => {
-    if (Assets?.Scene2 && !Loading) {
-      sound1.play();
-      sound1.on("end", () => {});
-    }
-  };
 
   const playCorrectSound = () => {
     if (Assets?.Scene2 && !Loading) {
@@ -270,15 +259,22 @@ export default function Game1({ counter, setCounter }) {
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
             id="fadeup"
-            className="senses_smell_img_game1"
+            className={
+              playing === true
+                ? "senses_smell_img_game1Disabled"
+                : "senses_smell_img_game1"
+            }
             onClick={Nose}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
             alt="txt"
             id="fadeup"
             className="Nose_Button"
-            style={{ display: noseButtonCrct === 1 ? "block" : "none" }}
+            style={{
+              display: noseButtonCrct === 1 ? "block" : "none",
+            }}
           />
 
           <Image
@@ -293,9 +289,13 @@ export default function Game1({ counter, setCounter }) {
             src={Assets?.Scene2?.sprites[1]}
             alt="txt"
             id="fadeup"
-            className="senses_taste_img_game1"
+            className={
+              playing === true
+                ? "senses_taste_img_game1Disabled"
+                : "senses_taste_img_game1"
+            }
             onClick={Tongue}
-            style={{}}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -316,8 +316,13 @@ export default function Game1({ counter, setCounter }) {
             src={Assets?.Scene2?.sprites[2]}
             alt="txt"
             id="fadeup"
-            className="senses_hearing_img_game1"
+            className={
+              playing === true
+                ? "senses_hearing_img_game1Disabled"
+                : "senses_hearing_img_game1"
+            }
             onClick={Ear}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -338,8 +343,13 @@ export default function Game1({ counter, setCounter }) {
             src={Assets?.Scene2?.sprites[3]}
             alt="txt"
             id="fadeup"
-            className="senses_touch_img_game1"
+            className={
+              playing === true
+                ? "senses_touch_img_game1Disabled"
+                : "senses_touch_img_game1"
+            }
             onClick={Skin}
+            style={{ cursor: "pointer" }}
           />
           <Image
             src={Assets?.Scene2?.sprites[23]}
@@ -360,8 +370,13 @@ export default function Game1({ counter, setCounter }) {
             src={Assets?.Scene2?.sprites[4]}
             alt="txt"
             id="fadeup"
-            className="senses_vision_img_game1"
+            className={
+              playing === true
+                ? "senses_vision_img_game1Disabled"
+                : "senses_vision_img_game1"
+            }
             onClick={Eye}
+            style={{ cursor: "pointer" }}
           />
 
           <Image
@@ -391,6 +406,7 @@ export default function Game1({ counter, setCounter }) {
             id="fadeup"
             className="audio_replay_icon"
             onClick={replayBtn}
+            style={{ cursor: "pointer" }}
           />
         </>
       }
