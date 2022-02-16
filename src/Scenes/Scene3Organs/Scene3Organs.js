@@ -29,6 +29,7 @@ export default function Scene3Organs({
     Assets[scenename]?.sounds?.map((v) => v?.stop());
   };
 
+  console.log(Assets, scenename)
   useEffect(() => {
     setName(IntroMap.select[next]);
     if (Assets?.Scene3 && !Loading) {

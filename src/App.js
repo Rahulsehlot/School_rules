@@ -93,7 +93,7 @@ function App() {
           soundId={4}
           position={"Eyes_position"}
           PropId={["6"]}
-          scenename={"Eyes_Scene3"}
+          scenename={"Scene3"}
         />
       </Router>
       <Router sceneId="/Nose_Scene3">
@@ -104,7 +104,7 @@ function App() {
           soundId={0}
           PropId={["7", "8"]}
           position={"Nose_position"}
-          scenename={"Nose_Scene3"}
+          scenename={"Scene3"}
         />
       </Router>
       <Router sceneId="/Tongue_Scene3">
@@ -115,7 +115,7 @@ function App() {
           soundId={1}
           PropId={["9", "10", "11"]}
           position={"Tongue_position"}
-          scenename={"Tongue_Scene3"}
+          scenename={"Scene3"}
         />
       </Router>
       <Router sceneId="/Ears_Scene3">
@@ -126,7 +126,7 @@ function App() {
           soundId={2}
           PropId={["12", "13", "14"]}
           position={"Ears_position"}
-          scenename={"Ears_Scene3"}
+          scenename={"Scene3"}
         />
       </Router>
       <Router sceneId="/Skin_Scene3">
@@ -137,7 +137,7 @@ function App() {
           soundId={3}
           PropId={["15", "16"]}
           position={"Skin_position"}
-          scenename={"Skin_Scene3"}
+          scenename={"Scene3"}
         />
       </Router>
       <Router sceneId="/Scene4">
