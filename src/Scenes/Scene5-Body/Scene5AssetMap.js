@@ -12,6 +12,7 @@ const IntroMap = {
     `${imgUrl}Newspaper.svg`,
     `${imgUrl}Sun.svg`,
     `${imgUrl}Arrow_Icon.svg`,
+    `${imgUrl}Skip_Btn.svg`,
   ],
 
   sounds: [`${soundUrl}Game2_sound.mp3`],

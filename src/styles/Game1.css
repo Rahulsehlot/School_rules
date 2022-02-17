@@ -144,3 +144,110 @@
   left: 0%;
   top: 0%;
 }
+
+.Hand_icon_Eyes {
+  position: absolute;
+  /* left: 1%;
+  top: 60%; */
+  width: 10%;
+  z-index: 2313123;
+  animation: eyes 1s ease-in-out alternate infinite;
+}
+
+@keyframes eyes {
+  from {
+    /* left: 1%; */
+    top: 60%;
+    right: 89%;
+  }
+
+  to {
+    /* left: 1%; */
+    top: 62%;
+    right: 90%;
+  }
+}
+
+.Hand_icon_Nose {
+  position: absolute;
+  width: 10%;
+  z-index: 2313123;
+  animation: Nose 1s ease-in-out alternate infinite;
+}
+
+@keyframes Nose {
+  from {
+    /* left: 1%; */
+    top: 80%;
+    right: 73%;
+  }
+
+  to {
+    /* left: 1%; */
+    top: 82%;
+    right: 74%;
+  }
+}
+
+.Hand_icon_Tongue {
+  position: absolute;
+  width: 10%;
+  z-index: 2313123;
+  animation: Tongue 1s ease-in-out alternate infinite;
+}
+
+@keyframes Tongue {
+  from {
+    /* left: 1%; */
+    top: 80%;
+    right: 53%;
+  }
+
+  to {
+    /* left: 1%; */
+    top: 82%;
+    right: 54%;
+  }
+}
+
+.Hand_icon_Ears {
+  position: absolute;
+  width: 10%;
+  z-index: 2313123;
+  animation: Ears 1s ease-in-out alternate infinite;
+}
+
+@keyframes Ears {
+  from {
+    /* left: 1%; */
+    top: 80%;
+    right: 33%;
+  }
+
+  to {
+    /* left: 1%; */
+    top: 82%;
+    right: 34%;
+  }
+}
+
+.Hand_icon_Skin {
+  position: absolute;
+  width: 10%;
+  z-index: 2313123;
+  animation: Skin 1s ease-in-out alternate infinite;
+}
+
+@keyframes Skin {
+  from {
+    /* left: 1%; */
+    top: 60%;
+    right: 13%;
+  }
+
+  to {
+    /* left: 1%; */
+    top: 62%;
+    right: 14%;
+  }
+}

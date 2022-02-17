@@ -33,6 +33,7 @@ const IntroMap = {
     `${imgUrl}Hand_Icon.svg`,
     `${imgUrl}Button_Icon_Green_Highlight.svg`,
     `${imgUrl}Button_Icon_Red_Highlight.svg`,
+    `${imgUrl}Hand_Icon.svg`,
   ],
 
   sounds: [
@@ -61,6 +62,8 @@ const IntroMap = {
   lottie: [],
 
   select: ["Nose", "Tongue", "Ear", "Touch", "Eye"],
+
+  hint: ["Eyes", "Nose", "Ears", "Tongue", "Skin"],
 
   counter: 6,
 };

@@ -8,13 +8,17 @@ import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 
-export default function Scene5() {
+export default function Scene5({ scenename }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
+
+  const stop_all_sounds = () => {
+    Assets[scenename]?.sounds?.map((v) => v?.stop());
+  };
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
@@ -44,6 +48,11 @@ export default function Scene5() {
       }
     }
   }, [Assets, Loading]);
+
+  const forward = () => {
+    stop_all_sounds();
+    setSceneId("/Eye_Game2");
+  };
 
   return (
     <Scenes
@@ -83,6 +92,14 @@ export default function Scene5() {
             alt="txt"
             id="fadeup"
             className="Game2_Larrow_img"
+          />
+          <Image
+            src={Assets?.Scene2?.sprites[4]}
+            alt="txt"
+            id="fadeup"
+            className="next"
+            onClick={forward}
+            style={{ cursor: "pointer", bottom: "1%" }}
           />
         </>
       }

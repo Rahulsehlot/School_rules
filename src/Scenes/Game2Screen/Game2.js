@@ -15,7 +15,6 @@ export default function Game2({
   G2Wrng,
   setG2Wrng,
   G2answer,
-  countdownSound,
 }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -69,21 +68,18 @@ export default function Game2({
     }
   };
 
+  console.log(answer);
   const Option1 = () => {
-    if (answer < 30) {
+    if (answer < 29) {
       if (playing === false) {
         console.log("Corrrect");
-        countdownSound.stop();
-
         playCorrectSound();
         const item = IntroMap.sprites[answer + 1].split("_");
+        console.log(item);
         const item1 = item[2].replace(".svg", "");
-        // console.log(item1);
         if (playing === false) {
           playCorrectSound();
-
           setoption1Verify(1);
-
           const timeout = setTimeout(() => {
             setSceneId("/" + item1 + "_Game2");
           }, 1000);
@@ -93,7 +89,12 @@ export default function Game2({
         }
       }
     } else {
-      setSceneId("/Scene6");
+      playCorrectSound();
+      setoption1Verify(1);
+
+      const timeout = setTimeout(() => {
+        setSceneId("/Scene6");
+      }, 1000);
     }
   };
 
@@ -111,11 +112,6 @@ export default function Game2({
 
       Assets?.Scene2?.sounds[flowCount + 1]?.play();
       Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
-        const timeout = setTimeout(() => {
-          countdownSound.play();
-          console.log(countdownSound);
-        }, 10000);
-
         setplaying(false);
       });
     }
@@ -169,7 +165,7 @@ export default function Game2({
               left: number === 1 ? "5%" : "54%",
               borderColor: option1Verify === 1 ? "Green" : "#25256d",
 
-              cursor: "pointer",
+              cursor: playing === false ? "pointer" : "",
             }}
           />
 
@@ -182,16 +178,16 @@ export default function Game2({
             style={{
               left: number === 1 ? "54%" : "5%",
               borderColor: option2Wrng === 1 ? "Red" : "#25256d",
-              cursor: "pointer",
+              cursor: playing === false ? "pointer" : "",
             }}
           />
           <Image
-            src={Assets?.Scene2?.sprites[56]}
+            src={Assets?.Scene2?.sprites[55]}
             alt="txt"
             id="fadeup"
             className="audio_replay_icon_Game2"
             onClick={replayBtn}
-            style={{ cursor: "pointer" }}
+            style={{ cursor: playing === false ? "pointer" : "" }}
           />
         </>
       }

@@ -8,13 +8,17 @@ import lottie from "lottie-web";
 import "../../styles/Scene4.css";
 import Image from "../../utils/elements/Image";
 
-export default function Scene4() {
+export default function Scene4({ scenename }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
+
+  const stop_all_sounds = () => {
+    Assets[scenename]?.sounds?.map((v) => v?.stop());
+  };
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
@@ -55,6 +59,13 @@ export default function Scene4() {
     fontSize: "4vmin",
     fontWeight: "700",
   };
+
+  const forward = () => {
+    stop_all_sounds();
+    setSceneId("/Game1");
+  };
+
+  console.log(Assets, scenename);
 
   return (
     <Scenes
@@ -159,6 +170,15 @@ export default function Scene4() {
           </div>
 
           <div ref={Ref} className="Scene4_lottie_container"></div>
+
+          <Image
+            src={Assets?.Scene2?.sprites[5]}
+            alt="txt"
+            id="fadeup"
+            className="next"
+            onClick={forward}
+            style={{ cursor: "pointer", bottom: "1%" }}
+          />
         </>
       }
     />

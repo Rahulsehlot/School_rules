@@ -13,6 +13,7 @@ const IntroMap = {
     `${imgUrl}Organs_button/Ear_Button_Icon.svg`,
     `${imgUrl}Organs_button/Skin_Button_Icon.svg`,
     `${imgUrl}Organs_button/Eye_Button_Icon.svg`,
+    `${imgUrl}Skip_Btn.svg`,
   ],
 
   sounds: [`${soundUrl}lets_play_a_game.mp3`],

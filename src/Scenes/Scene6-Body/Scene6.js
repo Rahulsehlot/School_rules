@@ -20,12 +20,16 @@ export default function Scene6({ setCounter, setG2Ans, setNext, setG2Wrng }) {
 
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
-      Assets?.Scene2?.sounds[0]?.play();
       setplaying(true);
+      Assets?.Scene2?.sounds[0]?.play();
       Assets?.Scene2?.sounds[0].on("end", () => {
-        Assets?.Scene2?.sounds[2]?.play();
-        Assets?.Scene2?.sounds[2].on("end", () => {
-          setplaying(false);
+        Assets?.Scene2?.sounds[3]?.play();
+        Assets?.Scene2?.sounds[3]?.volume(0.1);
+        Assets?.Scene2?.sounds[3].on("end", () => {
+          Assets?.Scene2?.sounds[2]?.play();
+          Assets?.Scene2?.sounds[2].on("end", () => {
+            setplaying(false);
+          });
         });
       });
     }
@@ -46,18 +50,39 @@ export default function Scene6({ setCounter, setG2Ans, setNext, setG2Wrng }) {
     }
   };
 
+  useEffect(() => {
+    if (Assets && Ref.current && !Loading) {
+      try {
+        lottie.loadAnimation({
+          name: "placeholder",
+          container: Ref.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          animationData: Assets?.Scene2?.lottie[0],
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }, [Assets, Loading]);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
-        <Image
-          src={Assets?.Scene2?.sprites[0]}
-          alt="txt"
-          id="fadeup"
-          className="audio_replay_icon_scene6"
-          onClick={RetryGame}
-          style={{ cursor: "pointer" }}
-        />
+        <>
+          <Image
+            src={Assets?.Scene2?.sprites[0]}
+            alt="txt"
+            id="fadeup"
+            className="audio_replay_icon_scene6"
+            onClick={RetryGame}
+            style={{ cursor: playing === false ? "pointer" : "" }}
+          />
+
+          <div ref={Ref} className="Scene6_lottie_container"></div>
+        </>
       }
     />
   );

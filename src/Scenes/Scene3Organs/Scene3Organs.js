@@ -29,7 +29,7 @@ export default function Scene3Organs({
     Assets[scenename]?.sounds?.map((v) => v?.stop());
   };
 
-  console.log(Assets, scenename)
+  console.log(Assets, scenename);
   useEffect(() => {
     setName(IntroMap.select[next]);
     if (Assets?.Scene3 && !Loading) {
@@ -41,6 +41,7 @@ export default function Scene3Organs({
           setName(item);
           setNext(nxtitem);
           const samp = "/" + item + "_Scene3";
+
           if (triggered === false) {
             setSceneId(samp);
           }
@@ -129,7 +130,7 @@ export default function Scene3Organs({
             className={position + "Prop3"}
             style={{ position: "fixed", width: "20%" }}
           />
-          <div id="fadeup" className="senses_scene3_txt">
+          <div id="fadeup" id="fadeup" className="senses_scene3_txt">
             {name.toLowerCase()}
           </div>
 
@@ -139,7 +140,10 @@ export default function Scene3Organs({
             id="fadeup"
             className="next"
             onClick={forward}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              display: position === "Skin_position" ? "none" : "block",
+            }}
           />
           <Image
             src={Assets?.Scene3?.sprites[18]}
@@ -147,7 +151,10 @@ export default function Scene3Organs({
             id="fadeup"
             className="back"
             onClick={back}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              display: position === "Eyes_position" ? "none" : "block",
+            }}
           />
 
           {/* Title */}

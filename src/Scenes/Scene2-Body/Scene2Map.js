@@ -14,7 +14,7 @@ const IntroMap = {
     `${imgUrl}Touch.svg`,
     `${imgUrl}Vision.svg`,
     `${imgUrl}Character.svg`,
-    `${imgUrl}next.svg`,
+    `${imgUrl}Skip_Btn.svg`,
   ],
 
   sounds: [`${soundUrl}scene2_sound.mp3`],

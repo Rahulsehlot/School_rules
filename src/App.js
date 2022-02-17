@@ -20,13 +20,12 @@ function App() {
   const [counter, setCounter] = useState(6);
   const [Organcounter, setOrganCounter] = useState(0);
   const [G2Ans, setG2Ans] = useState(5);
-  const [G2Wrng, setG2Wrng] = useState(31);
+  const [G2Wrng, setG2Wrng] = useState(30);
   const [mute, setmute] = useState(false);
   const [BG_sound, setBG_sound] = useState(null);
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
-  const [countdownSound, SetcountdownSound] = useState(null);
-
+  const [hintPlacement, sethintPlacement] = useState(0);
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
@@ -35,7 +34,6 @@ function App() {
   }, []);
 
   const loadAudio = async () => {
-    SetcountdownSound(await AudioPlayer2("internal/sounds/countdown.mp3"));
     setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"));
     seticon1(await LoadImage("internal/images/sound.svg"));
     seticon2(await LoadImage("internal/images/nosound.svg"));
@@ -96,6 +94,7 @@ function App() {
           position={"Eyes_position"}
           PropId={["6"]}
           scenename={"Scene3"}
+          sceneid={"/Eyes_Scene3"}
         />
       </Router>
       <Router sceneId="/Nose_Scene3">
@@ -107,6 +106,7 @@ function App() {
           PropId={["7", "8"]}
           position={"Nose_position"}
           scenename={"Scene3"}
+          sceneid={"/Nose_Scene3"}
         />
       </Router>
       <Router sceneId="/Tongue_Scene3">
@@ -118,6 +118,7 @@ function App() {
           PropId={["9", "10", "11"]}
           position={"Tongue_position"}
           scenename={"Scene3"}
+          sceneid={"/Tongue_Scene3"}
         />
       </Router>
       <Router sceneId="/Ears_Scene3">
@@ -129,6 +130,7 @@ function App() {
           PropId={["12", "13", "14"]}
           position={"Ears_position"}
           scenename={"Scene3"}
+          sceneid={"/Ears_Scene3"}
         />
       </Router>
       <Router sceneId="/Skin_Scene3">
@@ -140,13 +142,14 @@ function App() {
           PropId={["15", "16"]}
           position={"Skin_position"}
           scenename={"Scene3"}
+          sceneid={"/Skin_Scene3"}
         />
       </Router>
       <Router sceneId="/Scene4">
-        <Scene4 />
+        <Scene4 scenename={"Scene2"} />
       </Router>
       <Router sceneId="/Scene5">
-        <Scene5 />
+        <Scene5 scenename={"Scene2"} />
       </Router>
       <Router sceneId="/Scene6">
         <Scene6
@@ -164,7 +167,6 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Eye"}
           flowCount={0}
-          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Nose_Game2">
@@ -175,7 +177,6 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Nose"}
           flowCount={1}
-          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Ear_Game2">
@@ -186,7 +187,6 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Ear"}
           flowCount={2}
-          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Tongue_Game2">
@@ -197,7 +197,6 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Tongue"}
           flowCount={3}
-          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Skin_Game2">
@@ -208,7 +207,6 @@ function App() {
           setG2Wrng={setG2Wrng}
           G2answer={"Skin"}
           flowCount={4}
-          countdownSound={countdownSound}
         />
       </Router>
       <Router sceneId="/Game1">
@@ -216,7 +214,8 @@ function App() {
           counter={counter}
           setCounter={setCounter}
           scenename={"Scene2"}
-          countdownSound={countdownSound}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
         />
       </Router>
       <Router sceneId="/Game1_Helper">
@@ -224,7 +223,8 @@ function App() {
           counter={counter}
           setCounter={setCounter}
           scenename={"Scene2"}
-          countdownSound={countdownSound}
+          hintPlacement={hintPlacement}
+          sethintPlacement={sethintPlacement}
         />
       </Router>
     </GameContainer>

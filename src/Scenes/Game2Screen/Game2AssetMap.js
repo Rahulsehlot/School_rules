@@ -38,7 +38,6 @@ const IntroMap = {
     `${imgUrl}Game2_Images/Ear/Dog_Ear.svg`,
     `${imgUrl}Game2_Images/Tongue/Pop-corn_Tongue.svg`,
     `${imgUrl}Game2_Images/Skin/Feather_Skin.svg`,
-    `${imgUrl}`,
     `${imgUrl}Game2_Images/Eye/Ice-cubes_Eye.svg`,
     `${imgUrl}Game2_Images/Ear/Dog_Ear.svg`,
     `${imgUrl}Game2_Images/Skin/Crayons_Skin.svg`,
