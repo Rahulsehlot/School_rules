@@ -36,6 +36,8 @@ export default function Game1({
   const [earsButtonWrng, setearsButtonWrng] = useState(0);
   const [tongueButtonWrng, settongueButtonWrng] = useState(0);
   const [skinButtonWrng, setskinButtonWrng] = useState(0);
+  const [grey, setGrey] = useState(false);
+
   const [hand, setHand] = useState(0);
 
   useEffect(() => {
@@ -57,7 +59,6 @@ export default function Game1({
     if (hint1 < 5) {
       const temp = IntroMap.hint[hint1];
       setHint(temp);
-      console.log(hint);
     } else {
       sethintPlacement(0);
     }
@@ -66,9 +67,11 @@ export default function Game1({
   useEffect(() => {
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
+      setGrey(true);
       Assets?.Scene2?.sounds[G1SoundId].play();
       Assets?.Scene2?.sounds[G1SoundId].on("end", () => {
         setplaying(false);
+        setGrey(false);
       });
     }
   }, [Assets, Loading, isLoading]);
@@ -91,7 +94,6 @@ export default function Game1({
       setSeconds((seconds) => seconds + 1);
     }, 1000);
   }, []);
-  console.log(seconds);
 
   const playCorrectSound = () => {
     if (Assets?.Scene2 && !Loading) {
@@ -119,6 +121,7 @@ export default function Game1({
     if (playing === false) {
       if (Assets?.Scene2 && !Loading) {
         setplaying(true);
+        setGrey(true);
         Assets?.Scene2?.sounds[19].play();
         Assets?.Scene2?.sounds[19].on("end", () => {
           if (playing === false) {
@@ -126,6 +129,7 @@ export default function Game1({
               Assets?.Scene2?.sounds[G1SoundId].play();
               Assets?.Scene2?.sounds[G1SoundId].on("end", () => {
                 setplaying(false);
+                setGrey(false);
               });
             }
           }
@@ -249,7 +253,6 @@ export default function Game1({
         .replace("internal/images/Organs_images/", "")
         .replace(slice + "_", "")
         .replace(".svg", "");
-      console.log(verify);
 
       if (verify === "Eye") {
         Assets?.Scene2?.sounds[18].stop();
@@ -442,15 +445,32 @@ export default function Game1({
             id="fadeup"
             className="dotted_Line"
           />
-          <Image
-            src={Assets?.Scene2?.sprites[21]}
-            alt="txt"
-            id="fadeup"
-            className="audio_replay_icon"
-            onClick={replayBtn}
-            style={{ cursor: playing === false ? "pointer" : "" }}
-          />
 
+          <div
+            className={
+              playing === true
+                ? "audio_replay_iconDisabled"
+                : "audio_replay_icon"
+            }
+            style={{
+              opacity: grey === false ? "1" : "0.65",
+            }}
+          >
+            <Image
+              src={Assets?.Scene2?.sprites[21]}
+              alt="txt"
+              id="fadeup"
+              // className={
+              //   playing === true
+              //     ? "audio_replay_iconDisabled"
+              //     : "audio_replay_icon"
+              // }
+              onClick={replayBtn}
+              style={{
+                cursor: playing === false ? "pointer" : "",
+              }}
+            />
+          </div>
           <div className={"Hand_icon_" + hint}>
             <Image
               src={Assets?.Scene2?.sprites[25]}

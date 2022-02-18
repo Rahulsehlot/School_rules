@@ -27,6 +27,11 @@ const IntroMap = {
     `${imgUrl}Organs_images/Touching-stone.svg`,
     `${imgUrl}next.svg`,
     `${imgUrl}back.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_eyes.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_nose.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_ears.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_tongue.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_skin.svg`,
   ],
 
   sounds: [

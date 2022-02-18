@@ -26,9 +26,6 @@ export default function Scene5({ scenename }) {
       Assets?.Scene2?.sounds[0].on("end", () => {
         setSceneId("/Eye_Game2");
       });
-
-      // setSceneId('/')
-      console.log(Assets?.Scene2?.sounds[0]);
     }
   }, [Assets, Loading, isLoading]);
 

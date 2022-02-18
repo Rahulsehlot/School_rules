@@ -16,6 +16,7 @@ export default function Scene3Organs({
   PropId,
   position,
   scenename,
+  text_Id,
 }) {
   const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -29,7 +30,6 @@ export default function Scene3Organs({
     Assets[scenename]?.sounds?.map((v) => v?.stop());
   };
 
-  console.log(Assets, scenename);
   useEffect(() => {
     setName(IntroMap.select[next]);
     if (Assets?.Scene3 && !Loading) {
@@ -59,13 +59,10 @@ export default function Scene3Organs({
     stop_all_sounds();
     if (next > 0) {
       const nxtitem = next - 1;
-      console.log(next);
       const item = IntroMap.select[nxtitem];
       setNext(nxtitem);
-      console.log(nxtitem);
       const samp = "/" + item + "_Scene3";
       setSceneId(samp);
-      console.log(samp);
     }
   };
 
@@ -73,10 +70,8 @@ export default function Scene3Organs({
     stop_all_sounds();
     if (next < 4) {
       const nxtitem = next + 1;
-      console.log(next);
       const item = IntroMap.select[nxtitem];
       setNext(nxtitem);
-      console.log(nxtitem);
       const samp = "/" + item + "_Scene3";
       setSceneId(samp);
     } else {
@@ -84,7 +79,6 @@ export default function Scene3Organs({
     }
   };
 
-  console.log(triggered);
   return (
     <Scenes
       Bg={Bg}
@@ -130,9 +124,13 @@ export default function Scene3Organs({
             className={position + "Prop3"}
             style={{ position: "fixed", width: "20%" }}
           />
-          <div id="fadeup" id="fadeup" className="senses_scene3_txt">
-            {name.toLowerCase()}
-          </div>
+
+          <Image
+            src={Assets?.Scene3?.sprites[text_Id]}
+            alt="txt"
+            id="fadeup"
+            className="senses_scene3_txt"
+          />
 
           <Image
             src={Assets?.Scene3?.sprites[17]}

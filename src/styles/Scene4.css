@@ -31,22 +31,27 @@
 }
 
 .senses_vision_txt {
-  left: 7%;
+  width: 10%;
+  left: 5.5%;
 }
 
 .senses_smell_txt {
-  left: 27%;
+  width: 10%;
+  left: 25%;
 }
 
-.senses_taste_txt {
-  left: 47%;
+.senses_Taste_txt {
+  width: 10%;
+  left: 45%;
 }
 .senses_hearing_txt {
-  left: 67%;
+  width: 10%;
+  left: 65%;
 }
 
 .senses_touch_txt {
-  left: 87%;
+  width: 10%;
+  left: 85%;
 }
 
 .audio_replay_icon_scene6 {

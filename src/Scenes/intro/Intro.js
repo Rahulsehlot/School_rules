@@ -35,19 +35,26 @@ export default function Intro() {
             id="fadeup"
             className="senses_smell_img"
           />
-          <div id="fadeup" className="senses_smell">
-            SMELL
-          </div>
 
+          <Image
+            src={intro?.sprites[7]}
+            alt="txt"
+            id="fadeup"
+            className="senses_smell"
+          />
           <Image
             src={intro?.sprites[2]}
             alt="txt"
             id="fadeup"
             className="senses_taste_img"
           />
-          <div id="fadeup" className="senses_taste">
-            TASTE
-          </div>
+
+          <Image
+            src={intro?.sprites[8]}
+            alt="txt"
+            id="fadeup"
+            className="senses_taste"
+          />
 
           <Image
             src={intro?.sprites[3]}
@@ -55,9 +62,13 @@ export default function Intro() {
             id="fadeup"
             className="senses_hearing_img"
           />
-          <div id="fadeup" className="senses_hearing">
-            HEARING
-          </div>
+
+          <Image
+            src={intro?.sprites[9]}
+            alt="txt"
+            id="fadeup"
+            className="senses_hearing"
+          />
 
           <Image
             src={intro?.sprites[4]}
@@ -65,9 +76,13 @@ export default function Intro() {
             id="fadeup"
             className="senses_touch_img"
           />
-          <div id="fadeup" className="senses_touch">
-            TOUCH
-          </div>
+
+          <Image
+            src={intro?.sprites[10]}
+            alt="txt"
+            id="fadeup"
+            className="senses_touch"
+          />
 
           <Image
             src={intro?.sprites[5]}
@@ -76,9 +91,12 @@ export default function Intro() {
             className="senses_vision_img"
           />
 
-          <div id="fadeup" className="senses_vision">
-            VISION
-          </div>
+          <Image
+            src={intro?.sprites[11]}
+            alt="txt"
+            id="fadeup"
+            className="senses_vision"
+          />
 
           <Image
             className="play_btn"
@@ -94,7 +112,7 @@ export default function Intro() {
                   const timeout = setTimeout(() => {
                     setplaying(false);
                     setSceneId("/Scene2");
-                  }, 3000);
+                  }, 1500);
                 });
               }
             }}

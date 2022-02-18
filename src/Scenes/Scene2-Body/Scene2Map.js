@@ -15,6 +15,11 @@ const IntroMap = {
     `${imgUrl}Vision.svg`,
     `${imgUrl}Character.svg`,
     `${imgUrl}Skip_Btn.svg`,
+    `${imgUrl}Scene2Images/SB_27_TI_hear.svg`,
+    `${imgUrl}Scene2Images/SB_27_TI_see.svg`,
+    `${imgUrl}Scene2Images/SB_27_TI_smell.svg`,
+    `${imgUrl}Scene2Images/SB_27_TI_taste.svg`,
+    `${imgUrl}Scene2Images/SB_27_TI_touch.svg`,
   ],
 
   sounds: [`${soundUrl}scene2_sound.mp3`],

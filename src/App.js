@@ -93,6 +93,7 @@ function App() {
           soundId={4}
           position={"Eyes_position"}
           PropId={["6"]}
+          text_Id={19}
           scenename={"Scene3"}
           sceneid={"/Eyes_Scene3"}
         />
@@ -104,6 +105,7 @@ function App() {
           imageId={0}
           soundId={0}
           PropId={["7", "8"]}
+          text_Id={20}
           position={"Nose_position"}
           scenename={"Scene3"}
           sceneid={"/Nose_Scene3"}
@@ -115,6 +117,7 @@ function App() {
           setNext={setNext}
           imageId={1}
           soundId={1}
+          text_Id={22}
           PropId={["9", "10", "11"]}
           position={"Tongue_position"}
           scenename={"Scene3"}
@@ -127,6 +130,7 @@ function App() {
           setNext={setNext}
           imageId={2}
           soundId={2}
+          text_Id={21}
           PropId={["12", "13", "14"]}
           position={"Ears_position"}
           scenename={"Scene3"}
@@ -138,6 +142,7 @@ function App() {
           next={next}
           setNext={setNext}
           imageId={3}
+          text_Id={23}
           soundId={3}
           PropId={["15", "16"]}
           position={"Skin_position"}

@@ -26,6 +26,7 @@ export default function Game2({
   const [playing, setplaying] = useState(false);
   const [option1Verify, setoption1Verify] = useState(0);
   const [option2Wrng, setoption2Wrng] = useState(0);
+  const [grey, setGrey] = useState(false);
 
   const { intro } = Assets;
 
@@ -36,7 +37,6 @@ export default function Game2({
     const element = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
     setNumber(element);
   }, []);
-  console.log(number);
 
   //Setting Answer and random wrong answer
   useEffect(() => {
@@ -48,12 +48,13 @@ export default function Game2({
     setWrong(G2W1);
   }, []);
 
-  const playCorrectSound = () => {
+  const playCorrectSound = (onEnd = () => {}) => {
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
       Assets?.Scene2?.sounds[6]?.play();
       Assets?.Scene2?.sounds[6].on("end", () => {
         setplaying(false);
+        onEnd();
       });
     }
   };
@@ -68,21 +69,18 @@ export default function Game2({
     }
   };
 
-  console.log(answer);
   const Option1 = () => {
     if (answer < 29) {
       if (playing === false) {
-        console.log("Corrrect");
         playCorrectSound();
         const item = IntroMap.sprites[answer + 1].split("_");
-        console.log(item);
         const item1 = item[2].replace(".svg", "");
         if (playing === false) {
-          playCorrectSound();
           setoption1Verify(1);
-          const timeout = setTimeout(() => {
+          const soundEnd = () => {
             setSceneId("/" + item1 + "_Game2");
-          }, 1000);
+          };
+          playCorrectSound(soundEnd);
 
           setG2Ans(answer + 1);
           setG2Wrng(wrong + 1);
@@ -100,19 +98,21 @@ export default function Game2({
 
   const Option2 = () => {
     if (playing === false) {
-      console.log("Wrong");
       playWrongSound();
       setoption2Wrng(1);
     }
   };
 
   useEffect(() => {
+    console.log(Loading);
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
+      setGrey(true);
 
       Assets?.Scene2?.sounds[flowCount + 1]?.play();
       Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
         setplaying(false);
+        setGrey(false);
       });
     }
   }, [Assets, Loading, isLoading]);
@@ -127,6 +127,8 @@ export default function Game2({
     if (playing === false) {
       if (Assets?.Scene2 && !Loading) {
         setplaying(true);
+        setGrey(true);
+
         Assets?.Scene2?.sounds[8].play();
         Assets?.Scene2?.sounds[8].on("end", () => {
           if (playing === false) {
@@ -134,6 +136,7 @@ export default function Game2({
               Assets?.Scene2?.sounds[flowCount + 1].play();
               Assets?.Scene2?.sounds[flowCount + 1].on("end", () => {
                 setplaying(false);
+                setGrey(false);
               });
             }
           }
@@ -181,14 +184,27 @@ export default function Game2({
               cursor: playing === false ? "pointer" : "",
             }}
           />
-          <Image
-            src={Assets?.Scene2?.sprites[55]}
-            alt="txt"
-            id="fadeup"
-            className="audio_replay_icon_Game2"
-            onClick={replayBtn}
-            style={{ cursor: playing === false ? "pointer" : "" }}
-          />
+
+          <div
+            className={
+              playing === true
+                ? "audio_replay_iconDisabled"
+                : "audio_replay_icon"
+            }
+            style={{
+              opacity: grey === false ? "1" : "0.65",
+            }}
+          >
+            <Image
+              src={Assets?.Scene2?.sprites[55]}
+              alt="txt"
+              id="fadeup"
+              onClick={replayBtn}
+              style={{
+                cursor: grey === false ? "pointer" : "",
+              }}
+            />
+          </div>
         </>
       }
     />

@@ -61,3 +61,38 @@
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+
+.senses_vision_Scene2 {
+  width: 13%;
+  position: fixed;
+  top: 40%;
+  left: 44%;
+}
+
+.senses_touch_Scene2 {
+  width: 13%;
+  position: fixed;
+  top: 86%;
+  left: 8%;
+}
+
+.senses_smell_Scene2 {
+  width: 13%;
+  position: fixed;
+  top: 86%;
+  right: 9%;
+}
+
+.senses_taste_Scene2 {
+  width: 13%;
+  position: fixed;
+  top: 41%;
+  left: 8%;
+}
+
+.senses_hearing_Scene2 {
+  width: 13%;
+  position: fixed;
+  top: 41%;
+  right: 8%;
+}

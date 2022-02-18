@@ -51,7 +51,6 @@ export default function Scene2({ scenename }) {
     setSceneId("/Eyes_Scene3");
   };
 
-  console.log(Assets?.Scene2?.lottie);
   return (
     <Scenes
       Bg={Bg}
@@ -65,18 +64,26 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_smell_img"
           />
-          <div id="fadeup" className="senses_smell" style={{ right: "4%" }}>
-            smell
-          </div>
+
+          <Image
+            src={Assets?.Scene2?.sprites[7]}
+            alt="txt"
+            id="fadeup"
+            className="senses_hearing_Scene2"
+          />
+
           <Image
             src={Assets?.Scene2?.sprites[1]}
             alt="txt"
             id="fadeup"
             className="senses_taste_img"
           />
-          <div id="fadeup" className="senses_taste" style={{ left: "10%" }}>
-            taste
-          </div>
+          <Image
+            src={Assets?.Scene2?.sprites[8]}
+            alt="txt"
+            id="fadeup"
+            className="senses_vision_Scene2"
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[2]}
@@ -84,9 +91,19 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_hearing_img"
           />
-          <div id="fadeup" className="senses_hearing" style={{ right: "4%" }}>
-            hear
-          </div>
+
+          <Image
+            src={Assets?.Scene2?.sprites[9]}
+            alt="txt"
+            id="fadeup"
+            className="senses_smell_Scene2"
+          />
+          <Image
+            src={Assets?.Scene2?.sprites[10]}
+            alt="txt"
+            id="fadeup"
+            className="senses_taste_Scene2"
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[3]}
@@ -94,9 +111,13 @@ export default function Scene2({ scenename }) {
             id="fadeup"
             className="senses_touch_img"
           />
-          <div id="fadeup" className="senses_touch" style={{ left: "10%" }}>
-            touch
-          </div>
+
+          <Image
+            src={Assets?.Scene2?.sprites[11]}
+            alt="txt"
+            id="fadeup"
+            className="senses_touch_Scene2"
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[4]}
@@ -107,9 +128,13 @@ export default function Scene2({ scenename }) {
               top: "3%",
             }}
           />
-          <div id="fadeup" className="senses_vision" style={{ top: "40.5%" }}>
-            vision
-          </div>
+
+          <Image
+            src={Assets?.Scene2?.sprites[12]}
+            alt="txt"
+            id="fadeup"
+            className="senses_vision_Scene2"
+          />
 
           <div ref={Ref} className="intro_lottie_container"></div>
           <Image

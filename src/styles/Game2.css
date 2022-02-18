@@ -32,6 +32,7 @@
   border-radius: 40px;
 }
 
+.audio_replay_icon_Game2Disabled,
 .audio_replay_icon_Game2 {
   position: fixed;
   right: 2%;

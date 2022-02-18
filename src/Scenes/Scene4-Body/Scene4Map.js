@@ -14,6 +14,11 @@ const IntroMap = {
     `${imgUrl}Organs_button/Skin_Button_Icon.svg`,
     `${imgUrl}Organs_button/Eye_Button_Icon.svg`,
     `${imgUrl}Skip_Btn.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_eyes.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_nose.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_ears.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_tongue.svg`,
+    `${imgUrl}Scene3Images/SB_27_TI_skin.svg`,
   ],
 
   sounds: [`${soundUrl}lets_play_a_game.mp3`],

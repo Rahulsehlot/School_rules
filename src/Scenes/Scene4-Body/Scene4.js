@@ -53,11 +53,8 @@ export default function Scene4({ scenename }) {
   };
 
   const txt_style = {
-    width: "20%",
     position: "fixed",
     bottom: "45%",
-    fontSize: "4vmin",
-    fontWeight: "700",
   };
 
   const forward = () => {
@@ -65,15 +62,12 @@ export default function Scene4({ scenename }) {
     setSceneId("/Game1");
   };
 
-  console.log(Assets, scenename);
-
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
           {/* Title */}
-
           <Image
             src={Assets?.Scene2?.sprites[0]}
             alt="txt"
@@ -83,15 +77,14 @@ export default function Scene4({ scenename }) {
               ...btn_style,
             }}
           />
-          <div
+
+          <Image
+            src={Assets?.Scene2?.sprites[7]}
+            alt="txt"
             id="fadeup"
             className="senses_smell_txt"
-            style={{
-              ...txt_style,
-            }}
-          >
-            Nose
-          </div>
+            style={{ ...txt_style }}
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[1]}
@@ -102,15 +95,14 @@ export default function Scene4({ scenename }) {
               ...btn_style,
             }}
           />
-          <div
+
+          <Image
+            src={Assets?.Scene2?.sprites[9]}
+            alt="txt"
             id="fadeup"
-            className="senses_taste_txt"
-            style={{
-              ...txt_style,
-            }}
-          >
-            Tongue
-          </div>
+            className="senses_Taste_txt"
+            style={{ ...txt_style }}
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[2]}
@@ -121,15 +113,14 @@ export default function Scene4({ scenename }) {
               ...btn_style,
             }}
           />
-          <div
+
+          <Image
+            src={Assets?.Scene2?.sprites[8]}
+            alt="txt"
             id="fadeup"
             className="senses_hearing_txt"
-            style={{
-              ...txt_style,
-            }}
-          >
-            Ears
-          </div>
+            style={{ ...txt_style }}
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[3]}
@@ -140,15 +131,14 @@ export default function Scene4({ scenename }) {
               ...btn_style,
             }}
           />
-          <div
+
+          <Image
+            src={Assets?.Scene2?.sprites[10]}
+            alt="txt"
             id="fadeup"
             className="senses_touch_txt"
-            style={{
-              ...txt_style,
-            }}
-          >
-            Skin
-          </div>
+            style={{ ...txt_style }}
+          />
 
           <Image
             src={Assets?.Scene2?.sprites[4]}
@@ -159,15 +149,14 @@ export default function Scene4({ scenename }) {
               ...btn_style,
             }}
           />
-          <div
+
+          <Image
+            src={Assets?.Scene2?.sprites[6]}
+            alt="txt"
             id="fadeup"
             className="senses_vision_txt"
-            style={{
-              ...txt_style,
-            }}
-          >
-            Eyes
-          </div>
+            style={{ ...txt_style }}
+          />
 
           <div ref={Ref} className="Scene4_lottie_container"></div>
 
