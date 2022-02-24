@@ -13,12 +13,14 @@ import Game2 from "./Scenes/Game2Screen/Game2";
 import Scene6 from "./Scenes/Scene6-Body/Scene6";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
+import useLoadAsset from "./utils/useLoadAsset";
+import IntroMap from "./Scenes/Game2Screen/Game2AssetMap";
 
 function App() {
+  const { Loading } = useLoadAsset(IntroMap);
   const [Load, setLoad] = useState(true);
   const [next, setNext] = useState(0);
   const [counter, setCounter] = useState(6);
-  const [Organcounter, setOrganCounter] = useState(0);
   const [G2Ans, setG2Ans] = useState(5);
   const [G2Wrng, setG2Wrng] = useState(30);
   const [mute, setmute] = useState(false);

@@ -3,7 +3,7 @@ const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
 const IntroMap = {
-  id: "Scene2",
+  id: "Scene22",
 
   Bg: `${imgUrl}Texture-BG_Dark.svg`,
 
@@ -64,10 +64,12 @@ const IntroMap = {
     `${imgUrl}Game2_Images/Skin/Teddy_Skin.svg`,
     `${imgUrl}Game2_Images/Eye/Sun_Eye.svg`,
     `${imgUrl}Audio_replay_button.svg`,
+    `${imgUrl}Layout_Box_Icon.svg`,
+    `${imgUrl}Layout_Box_Icon_Green_Highlight.svg`,
+    `${imgUrl}Layout_Box_Icon_Red_Highlight.svg`,
   ],
 
   sounds: [
-    `${soundUrl}Game2_sound.mp3`,
     `${soundUrl}game2-sounds/sense-of-eye.mp3`,
     `${soundUrl}game2-sounds/sense-of-smell.mp3`,
     `${soundUrl}game2-sounds/sense-of-hearing.mp3`,

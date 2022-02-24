@@ -68,8 +68,8 @@ export default function Game1({
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
       setGrey(true);
-      Assets?.Scene2?.sounds[G1SoundId].play();
-      Assets?.Scene2?.sounds[G1SoundId].on("end", () => {
+      Assets?.Scene2?.sounds[G1SoundId]?.play();
+      Assets?.Scene2?.sounds[G1SoundId]?.on("end", () => {
         setplaying(false);
         setGrey(false);
       });
@@ -80,12 +80,12 @@ export default function Game1({
 
   useEffect(() => {
     if (clicked === 1) {
-      Assets?.Scene2?.sounds[18].stop();
+      Assets?.Scene2?.sounds[18]?.stop();
     }
 
     if (seconds > 15) {
       setSeconds(0);
-      Assets?.Scene2?.sounds[18].play();
+      Assets?.Scene2?.sounds[18]?.play();
       setHand(1);
     }
   });
@@ -98,8 +98,8 @@ export default function Game1({
   const playCorrectSound = () => {
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
-      Assets?.Scene2?.sounds[16].play();
-      Assets?.Scene2?.sounds[16].on("end", () => {
+      Assets?.Scene2?.sounds[16]?.play();
+      Assets?.Scene2?.sounds[16]?.on("end", () => {
         sethintPlacement(hintPlacement + 1);
         setSceneId("/Game1");
         setplaying(false);
@@ -110,8 +110,8 @@ export default function Game1({
   const playWrongSound = () => {
     if (Assets?.Scene2 && !Loading) {
       setplaying(true);
-      Assets?.Scene2?.sounds[17].play();
-      Assets?.Scene2?.sounds[17].on("end", () => {
+      Assets?.Scene2?.sounds[17]?.play();
+      Assets?.Scene2?.sounds[17]?.on("end", () => {
         setplaying(false);
       });
     }
@@ -122,12 +122,12 @@ export default function Game1({
       if (Assets?.Scene2 && !Loading) {
         setplaying(true);
         setGrey(true);
-        Assets?.Scene2?.sounds[19].play();
-        Assets?.Scene2?.sounds[19].on("end", () => {
+        Assets?.Scene2?.sounds[19]?.play();
+        Assets?.Scene2?.sounds[19]?.on("end", () => {
           if (playing === false) {
             if (Assets?.Scene2 && !Loading) {
-              Assets?.Scene2?.sounds[G1SoundId].play();
-              Assets?.Scene2?.sounds[G1SoundId].on("end", () => {
+              Assets?.Scene2?.sounds[G1SoundId]?.play();
+              Assets?.Scene2?.sounds[G1SoundId]?.on("end", () => {
                 setplaying(false);
                 setGrey(false);
               });
@@ -152,7 +152,7 @@ export default function Game1({
         .replace(".svg", "");
       setHint(verify);
       if (verify === "Nose") {
-        Assets?.Scene2?.sounds[18].stop();
+        Assets?.Scene2?.sounds[18]?.stop();
 
         setClicked(1);
 
@@ -178,7 +178,7 @@ export default function Game1({
         .replace(slice + "_", "")
         .replace(".svg", "");
       if (verify === "Tongue") {
-        Assets?.Scene2?.sounds[18].stop();
+        Assets?.Scene2?.sounds[18]?.stop();
         setHand(0);
         setClicked(1);
 
@@ -203,7 +203,7 @@ export default function Game1({
         .replace(slice + "_", "")
         .replace(".svg", "");
       if (verify === "Ear") {
-        Assets?.Scene2?.sounds[18].stop();
+        Assets?.Scene2?.sounds[18]?.stop();
         setClicked(1);
 
         setHand(0);
@@ -229,7 +229,7 @@ export default function Game1({
         .replace(slice + "_", "")
         .replace(".svg", "");
       if (verify === "Skin") {
-        Assets?.Scene2?.sounds[18].stop();
+        Assets?.Scene2?.sounds[18]?.stop();
         setClicked(1);
 
         setHand(0);
@@ -255,7 +255,7 @@ export default function Game1({
         .replace(".svg", "");
 
       if (verify === "Eye") {
-        Assets?.Scene2?.sounds[18].stop();
+        Assets?.Scene2?.sounds[18]?.stop();
         setClicked(1);
         setHand(0);
         setS1(counter + 1);
