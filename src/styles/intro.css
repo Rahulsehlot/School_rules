@@ -8,58 +8,42 @@
 }
 
 .senses_txt_img {
-  width: 45%;
+  width: 55%;
   position: fixed;
-  top: 10%;
-  left: 26%;
-}
-
-.senses_smell_img {
-  width: 20%;
-  position: fixed;
-  top: 50%;
-  right: 5%;
-}
-.senses_taste_img {
-  width: 20%;
-  position: fixed;
-  top: 5%;
-  left: 5%;
-}
-.senses_hearing_img {
-  width: 20%;
-  position: fixed;
-  top: 5%;
-  right: 5%;
-}
-
-.senses_touch_img {
-  width: 20%;
-  position: fixed;
-  top: 50%;
+  bottom: 10%;
   left: 5%;
 }
 
-.senses_vision_img {
+.intro_Boy_container {
   width: 20%;
   position: fixed;
-  top: 50%;
-  left: 40%;
+  bottom: 8%;
+  right: 10%;
 }
 
 .play_btn {
   position: fixed;
-  bottom: 36%;
-  left: 58%;
+  top: 50%;
+  left: 55%;
   width: 10%;
-  cursor: pointer;
+  z-index: 999;
 }
 
-.play_btn:active {
-  border-radius: 50%;
-  transform: scale(0.95);
+.next {
+  width: 6%;
+  position: fixed;
+  bottom: 5%;
+  right: 1%;
+  z-index: 798787897;
 }
 
+.ReplayBTN {
+  width: 10%;
+  position: fixed;
+  bottom: 5%;
+  right: 45%;
+  z-index: 798787897;
+}
 .mute_btn {
   width: 5%;
   position: fixed;
@@ -67,59 +51,10 @@
   z-index: 101010;
   bottom: 50%;
   left: 1%;
+  cursor: pointer;
 }
 
 .mute_btn:active {
   border-radius: 50%;
   transform: scale(0.95);
-}
-
-.senses_smell {
-  width: 15%;
-  position: fixed;
-  top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  right: 6%;
-  color: #fff;
-}
-
-.senses_taste {
-  width: 15%;
-  position: fixed;
-  top: 42.5%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 7%;
-  color: #fff;
-}
-
-.senses_hearing {
-  width: 15%;
-  position: fixed;
-  top: 42.5%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  right: 8%;
-  color: #fff;
-}
-
-.senses_touch {
-  width: 15%;
-  position: fixed;
-  top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 7%;
-  color: #fff;
-}
-
-.senses_vision {
-  width: 15%;
-  position: fixed;
-  top: 87%;
-  font-size: 3vw !important;
-  font-weight: 700;
-  left: 42%;
-  color: #fff;
 }

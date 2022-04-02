@@ -1,257 +1,86 @@
-.dotted_Line {
+.ClassroomText {
   position: fixed;
-  top: 50%;
-  left: 10%;
-  transform: translate(-50% -50%);
-  height: 40%;
   width: 80%;
-  z-index: 1;
-}
-
-.senses_taste_img_game1Disabled,
-.senses_taste_img_game1 {
-  width: 15%;
-  position: fixed;
-  top: 69%;
-  left: 42%;
-  z-index: 2;
-  border-radius: 100%;
-}
-
-.Taste_Button {
-  width: 18.5%;
-  position: fixed;
-  top: 66%;
-  left: 40.25%;
-  z-index: 3;
-}
-.senses_smell_img_game1Disabled,
-.senses_smell_img_game1 {
-  width: 15%;
-  position: fixed;
-  top: 64%;
-  left: 22%;
-  z-index: 2;
-  border-radius: 100%;
-}
-
-.Nose_Button {
-  width: 18.5%;
-  position: fixed;
-  top: 61%;
-  left: 20.25%;
-  z-index: 3;
-}
-
-.senses_touch_img_game1Disabled,
-.senses_touch_img_game1 {
-  width: 15%;
-  position: fixed;
-  top: 44%;
-  right: 5%;
-  z-index: 2;
-  border-radius: 100%;
-}
-
-.Touch_Button {
-  width: 18.5%;
-  position: fixed;
-  top: 40.75%;
-  right: 3.3%;
-  z-index: 3;
-}
-
-.senses_hearing_img_game1Disabled,
-.senses_hearing_img_game1 {
-  width: 15%;
-  position: fixed;
-  top: 64%;
-  right: 23.5%;
-  z-index: 2;
-  border-radius: 100%;
-}
-
-.Hearing_Button {
-  width: 18.5%;
-  position: fixed;
-  top: 61%;
-  right: 21.75%;
-  z-index: 3;
-}
-
-/* body {
-  cursor: url("data:image/png;base64,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"),
-    auto;
-} */
-
-.senses_vision_img_game1Disabled,
-.senses_vision_img_game1 {
-  width: 15%;
-  position: fixed;
-  top: 44%;
-  left: 5%;
-  z-index: 2;
-  border-radius: 100%;
-}
-
-.Vision_Button {
-  width: 18.5%;
-  position: fixed;
-  top: 40.75%;
-  left: 3.3%;
-  z-index: 3;
-}
-
-.Game_question {
-  position: fixed;
-  left: 35%;
-  border-radius: 50%;
+  height: 20%;
+  left: 10%;
   top: 5%;
-  width: 30%;
 }
-.audio_replay_iconDisabled,
-.audio_replay_icon {
+
+.Option1 {
   position: fixed;
-  right: 2%;
-  top: 81%;
-  width: 9%;
-  border-radius: 100%;
+  width: 43%;
+  /* height: 70%; */
+  left: 5%;
+  bottom: 0%;
+  z-index: 3;
 }
 
-.senses_taste_img_game1:active,
-.senses_smell_img_game1:active,
-.senses_touch_img_game1:active,
-.senses_hearing_img_game1:active,
-.senses_vision_img_game1:active {
-  border-radius: 50%;
-  transform: scale(0.95);
-}
-
-.audio_replay_icon:active {
-  border-radius: 50%;
-  transform: scale(0.98);
-}
-
-.answer-outline-Panel {
-  width: 12.8vw;
+.Option2 {
   position: fixed;
-  top: 44.2%;
+  width: 43%;
+  left: 51%;
+  bottom: 0%;
+  z-index: 3;
+}
+
+.RightHighlight {
+  position: fixed;
+  width: 42.5%;
+  height: 78.4%;
   left: 5.3%;
-  z-index: 2;
-  border-radius: 50%;
-  border: 10px solid red;
-  height: 19vh;
+  bottom: 2.4%;
+  z-index: 5;
 }
 
-.Image {
+.WrongHighlight {
   position: fixed;
-  left: 0%;
-  top: 0%;
+  width: 42.5%;
+  height: 78.4%;
+  left: 51.3%;
+  bottom: 2.4%;
+  z-index: 5;
 }
 
-.Hand_icon_Eyes {
-  position: absolute;
-  /* left: 1%;
-  top: 60%; */
-  width: 10%;
-  z-index: 2313123;
-  animation: eyes 1s ease-in-out alternate infinite;
+.text_lottie_container {
+  position: fixed;
+  right: 15%;
+  top: 3%;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes eyes {
-  from {
-    /* left: 1%; */
-    top: 60%;
-    right: 89%;
-  }
-
-  to {
-    /* left: 1%; */
-    top: 62%;
-    right: 90%;
-  }
+.particles_lottie_container {
+  position: fixed;
+  left: 12%;
+  top: 15%;
+  width: 70%;
+  height: 70%;
 }
 
-.Hand_icon_Nose {
-  position: absolute;
-  width: 10%;
-  z-index: 2313123;
-  animation: Nose 1s ease-in-out alternate infinite;
+.WellDone_lottie_container {
+  position: fixed;
+  right: 15%;
+  bottom: 5%;
+  width: 20%;
+  z-index: 5564;
 }
 
-@keyframes Nose {
-  from {
-    /* left: 1%; */
-    top: 80%;
-    right: 73%;
-  }
-
-  to {
-    /* left: 1%; */
-    top: 82%;
-    right: 74%;
-  }
+.option1_div {
+  position: fixed;
+  border-radius: 100pt;
+  left: 7.5%;
+  top: 23.7%;
+  width: 39%;
+  height: 69.5%;
+  z-index: 4;
 }
 
-.Hand_icon_Tongue {
-  position: absolute;
-  width: 10%;
-  z-index: 2313123;
-  animation: Tongue 1s ease-in-out alternate infinite;
-}
-
-@keyframes Tongue {
-  from {
-    /* left: 1%; */
-    top: 80%;
-    right: 53%;
-  }
-
-  to {
-    /* left: 1%; */
-    top: 82%;
-    right: 54%;
-  }
-}
-
-.Hand_icon_Ears {
-  position: absolute;
-  width: 10%;
-  z-index: 2313123;
-  animation: Ears 1s ease-in-out alternate infinite;
-}
-
-@keyframes Ears {
-  from {
-    /* left: 1%; */
-    top: 80%;
-    right: 33%;
-  }
-
-  to {
-    /* left: 1%; */
-    top: 82%;
-    right: 34%;
-  }
-}
-
-.Hand_icon_Skin {
-  position: absolute;
-  width: 10%;
-  z-index: 2313123;
-  animation: Skin 1s ease-in-out alternate infinite;
-}
-
-@keyframes Skin {
-  from {
-    /* left: 1%; */
-    top: 60%;
-    right: 13%;
-  }
-
-  to {
-    /* left: 1%; */
-    top: 62%;
-    right: 14%;
-  }
+.option2_div {
+  position: fixed;
+  border-radius: 100pt;
+  left: 53.5%;
+  top: 23.7%;
+  width: 39%;
+  height: 69.5%;
+  z-index: 4;
 }

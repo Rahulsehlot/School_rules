@@ -1,86 +1,38 @@
-.Blue_layyer_wrapper {
-  height: 100%;
+.Questions {
   position: fixed;
-  left: -2%;
+  left: 30%;
+  top: 0%;
+  width: 40%;
+}
+
+.Questions_Text {
+  position: fixed;
+  /* left: 30%; */
   bottom: 0%;
-  z-index: 0;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.senses_scene3_txt {
+.Questions_Img {
+  width: 100%;
+  height: 100%;
+}
+
+.forward {
   position: fixed;
-  width: 15%;
-  top: 60%;
-  left: 9%;
-  z-index: 9;
-}
-
-.Eyes_positionProp1 {
-  right: 20%;
-  top: 23%;
-}
-
-.Nose_positionProp1 {
-  right: 35%;
-  top: 25%;
-}
-.Nose_positionProp2 {
-  right: 10%;
-  top: 25%;
-}
-
-.Tongue_positionProp1 {
-  right: 40%;
-  top: 10%;
-  z-index: 1;
-}
-.Tongue_positionProp2 {
-  right: 24%;
-  top: 42%;
-  z-index: 3;
-}
-.Tongue_positionProp3 {
-  right: 8%;
-  top: 10%;
-  z-index: 1;
-}
-
-.Ears_positionProp1 {
-  right: 40%;
-  top: 10%;
-  z-index: 1;
-}
-.Ears_positionProp2 {
-  right: 24%;
-  top: 42%;
-  z-index: 3;
-}
-.Ears_positionProp3 {
-  right: 8%;
-  top: 10%;
-  z-index: 1;
-}
-
-.Skin_positionProp1 {
-  right: 35%;
-  top: 25%;
-}
-.Skin_positionProp2 {
-  right: 10%;
-  top: 25%;
-}
-
-.back {
-  position: fixed;
-  left: 2%;
+  right: 1%;
   bottom: 5%;
-  z-index: 5;
-  width: 7%;
+  width: 6%;
+  cursor: pointer;
 }
 
-.next {
+.backward {
   position: fixed;
-  right: 2%;
+  left: 1%;
   bottom: 5%;
-  z-index: 5;
-  width: 7%;
+  width: 6%;
+  cursor: pointer;
 }

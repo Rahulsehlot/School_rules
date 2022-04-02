@@ -5,26 +5,13 @@ const lottieUrl = "internal/lottie/";
 const IntroMap = {
   id: "Scene2",
 
-  Bg: `${imgUrl}Intro-bg.svg`,
+  Bg: `${imgUrl}School_Bg.svg`,
 
-  sprites: [
-    `${imgUrl}Smell.svg`,
-    `${imgUrl}Taste.svg`,
-    `${imgUrl}Hearing.svg`,
-    `${imgUrl}Touch.svg`,
-    `${imgUrl}Vision.svg`,
-    `${imgUrl}Character.svg`,
-    `${imgUrl}Skip_Btn.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_hear.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_see.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_smell.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_taste.svg`,
-    `${imgUrl}Scene2Images/SB_27_TI_touch.svg`,
-  ],
+  sprites: [`${imgUrl}Skip_Btn.svg`],
 
-  sounds: [`${soundUrl}scene2_sound.mp3`],
+  sounds: [`${soundUrl}scene2_audio.mp3`],
 
-  lottie: [`${lottieUrl}main_character.json`],
+  lottie: [`${lottieUrl}Boy_Lottie.json`],
 };
 
 export default IntroMap;

@@ -9,22 +9,14 @@ const IntroMap = {
 
   sprites: [
     `${imgUrl}Intro-Text.svg`,
-    `${imgUrl}Smell.svg`,
-    `${imgUrl}Taste.svg`,
-    `${imgUrl}Hearing.svg`,
-    `${imgUrl}Touch.svg`,
-    `${imgUrl}Vision.svg`,
-    `${imgUrl}btn.svg`,
-    `${imgUrl}Intro_Screen_Images/SB_27_Intro_Text_Smell.svg`,
-    `${imgUrl}Intro_Screen_Images/SB_27_Intro_Text_Taste.svg`,
-    `${imgUrl}Intro_Screen_Images/SB_27_Intro_Text_Hearing.svg`,
-    `${imgUrl}Intro_Screen_Images/SB_27_Intro_Text_Touch.svg`,
-    `${imgUrl}Intro_Screen_Images/SB_27_Intro_Text_Vision.svg`,
+    `${imgUrl}Buttons-play.svg`,
+    `${imgUrl}internal/images/sound.svg.svg`,
+    `${imgUrl}internal/images/nosound.svg`,
   ],
 
-  sounds: [`${soundUrl}Intro_sound.mp3`],
+  sounds: [],
 
-  lottie: [],
+  lottie: [`${lottieUrl}Boy_Lottie.json`],
 };
 
 export default IntroMap;

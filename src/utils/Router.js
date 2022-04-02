@@ -3,6 +3,5 @@ import { SceneContext } from "../contexts/SceneContext";
 
 export default function Router({ children, sceneId }) {
   const { SceneId } = React.useContext(SceneContext);
-  console.log(sceneId);
   return SceneId === sceneId ? <div className="fadeup">{children}</div> : null;
 }

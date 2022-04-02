@@ -16,6 +16,7 @@ export default function useLoadAsset(Map) {
 
   useEffect(() => {
     const newSceneData = {
+      Bg: "",
       sounds: [],
       sprites: [],
     };
@@ -23,7 +24,8 @@ export default function useLoadAsset(Map) {
     const loadImage = new Promise((resolve, reject) => {
       LoadImage(Map.Bg)
         .then((v) => {
-          setBg(v);
+          // setBg(v)
+          newSceneData["Bg"] = v;
           resolve(v);
         })
         .catch((err) => {

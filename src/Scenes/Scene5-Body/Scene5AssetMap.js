@@ -2,22 +2,16 @@ const imgUrl = "internal/images/";
 const soundUrl = "internal/sounds/";
 const lottieUrl = "internal/lottie/";
 
-const IntroMap = {
-  id: "Scene2",
+const Scene5Map = {
+  id: "scene5",
 
-  Bg: `${imgUrl}Texture-BG_Light.svg`,
+  Bg: `${imgUrl}SB_19_School_Bus_Intro_Bg.svg`,
 
-  sprites: [
-    `${imgUrl}Organs/Eye.svg`,
-    `${imgUrl}Newspaper.svg`,
-    `${imgUrl}Sun.svg`,
-    `${imgUrl}Arrow_Icon.svg`,
-    `${imgUrl}Skip_Btn.svg`,
-  ],
+  sprites: [`${imgUrl}SB_19_School_Bus_Intro_BG_Text.svg`],
 
-  sounds: [`${soundUrl}Game2_sound.mp3`],
+  sounds: [`${soundUrl}scene5_Audio.mp3`],
 
-  lottie: [`${lottieUrl}main_character.json`],
+  lottie: [`${lottieUrl}Boy_Lottie.json`],
 };
 
-export default IntroMap;
+export default Scene5Map;
