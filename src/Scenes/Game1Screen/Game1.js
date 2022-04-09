@@ -20,6 +20,8 @@ import Game1Trace9Map from "../Traces/Game1Trace9";
 import Game1Trace10Map from "../Traces/Game1Trace10";
 import Game1Trace11Map from "../Traces/Game1Trace11";
 import WellDoneMap from "../WellDone/WellDoneAssetMap";
+import Star from "../progress_bar/progress_bar";
+import { counter } from "../progress_bar/progress_bar_map";
 
 const get_ani_map = (val) => {
   switch (val) {
@@ -57,12 +59,19 @@ const get_ani_map = (val) => {
   }
 };
 
-export default function Game1({ preLoad, scenename, assetID, soundID }) {
+export default function Game1({
+  preLoad,
+  scenename,
+  assetID,
+  soundID,
+  loadtest,
+  setCount,
+  count,
+}) {
   const { Bg, setBg } = useContext(BGContext);
   const Next = useLoadAsset(preLoad);
-
   const stop_all_sounds = () => {
-    Assets?.Game1Trace1?.sounds?.map((v) => v?.stop());
+    Assets?.[assetID]?.sounds?.map((v) => v?.stop());
   };
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -78,21 +87,23 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
   useEffect(() => {
     const element = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
     setNumber(element);
+    console.log(preLoad, assetID);
   }, []);
 
   useEffect(() => {
     setBg(Assets?.Scene3screen1?.Bg);
-    if (Assets?.Game1Trace1) {
-      Assets?.Game1Trace1?.sounds[soundID]?.play();
-      Assets?.Game1Trace1?.sounds[soundID]?.on("end", () => {});
+    if (Assets?.[assetID]) {
+      Assets?.[assetID]?.sounds[0]?.play();
+      Assets?.[assetID]?.sounds[0]?.on("end", () => {});
     }
   }, []);
 
   const playCorrectSound = () => {
-    if (Assets?.Game1Trace1) {
+    counter(count, setCount);
+    if (Assets?.intro) {
       setplaying(true);
-      Assets?.Game1Trace1?.sounds[11]?.play();
-      Assets?.Game1Trace1?.sounds[11]?.on("end", () => {
+      Assets?.intro?.sounds[0]?.play();
+      Assets?.intro?.sounds[0]?.on("end", () => {
         // setSceneId("/Game1_Helper");
         setplaying(false);
       });
@@ -100,10 +111,10 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
   };
 
   const playWrongSound = () => {
-    if (Assets?.Game1Trace1) {
+    if (Assets?.intro) {
       setplaying(true);
-      Assets?.Game1Trace1?.sounds[12]?.play();
-      Assets?.Game1Trace1?.sounds[12]?.on("end", () => {
+      Assets?.intro?.sounds[1]?.play();
+      Assets?.intro?.sounds[1]?.on("end", () => {
         setplaying(false);
       });
     }
@@ -123,7 +134,7 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
 
   const option2 = () => {
     if (playing === false) {
-      Assets?.Game1Trace1?.sounds[soundID]?.stop();
+      Assets?.[assetID]?.sounds[0]?.stop();
       setFadeW(1);
       playWrongSound();
     }
@@ -139,12 +150,12 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
 
   useEffect(() => {
     if (clicked === 1) {
-      Assets?.Game1Trace1?.sounds[soundID]?.stop();
+      Assets?.[assetID]?.sounds[0]?.stop();
     }
 
     if (seconds > 15) {
       setSeconds(0);
-      Assets?.Game1Trace1?.sounds[soundID]?.play();
+      Assets?.[assetID]?.sounds[0]?.play();
     }
   });
   useEffect(() => {
@@ -161,7 +172,7 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
           {/* Title */}
           {/* <div className="mouse-move" onMouseMove={handleMouseMove}></div> */}
           <Image
-            src={Assets?.Game1Trace1?.sprites[2]}
+            src={Assets?.intro?.sprites[7]}
             alt="txt"
             id="fadeup"
             className="ClassroomText"
@@ -208,7 +219,7 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
           />
 
           <Image
-            src={Assets?.Game1Trace1?.sprites[3]}
+            src={Assets?.intro?.sprites[8]}
             alt="txt"
             id="fadeup"
             className="RightHighlight"
@@ -218,7 +229,7 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
             }}
           />
           <Image
-            src={Assets?.Game1Trace1?.sprites[4]}
+            src={Assets?.intro?.sprites[9]}
             alt="txt"
             id="fadeup"
             className="WrongHighlight"
@@ -227,6 +238,7 @@ export default function Game1({ preLoad, scenename, assetID, soundID }) {
               left: number === 1 ? "51.7%" : "5.8%",
             }}
           />
+          <Star num={count} />
         </>
       }
     />

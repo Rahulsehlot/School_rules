@@ -10,8 +10,7 @@ const Scene3AssetMapScreen1 = {
   sprites: [
     `${imgUrl}Scene2_Images/1.svg`,
     `${imgUrl}Scene2_Images/Text_01.svg`,
-    `${imgUrl}backward.svg`,
-    `${imgUrl}forward.svg`,
+    `${imgUrl}Skip_Btn.svg`,
   ],
 
   sounds: [`${soundUrl}Scene2_Audio/EP_19_Audio_05.mp3`],

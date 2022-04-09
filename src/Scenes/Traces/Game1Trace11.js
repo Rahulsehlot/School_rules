@@ -6,7 +6,7 @@ const Game1Trace11Map = {
   id: "Game1Trace11",
 
   sprites: [
-    `${imgUrl}Game1Images/11_right.svg`,
+    `${imgUrl}Game1Images/9_right.svg`,
     `${imgUrl}Game1Images/11_wrong.svg`,
   ],
 

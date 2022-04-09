@@ -5,11 +5,12 @@ import useLoadAsset from "../../utils/useLoadAsset";
 import lottie from "lottie-web";
 import "../../styles/intro.css";
 import Image from "../../utils/elements/Image";
-import IntroMap from "../Scene2-Body/Scene2Map";
+// import IntroMap from "../Scene2-Body/Scene2Map";
 import { BGContext } from "../../contexts/Background";
+import Scene4Map from "../Scene4-Body/Scene4Map";
 
-export default function Intro() {
-  const Next = useLoadAsset(IntroMap);
+export default function Intro({ s1, setS1, setaId, aId }) {
+  const Next = useLoadAsset(Scene4Map);
   const { Bg, setBg } = useContext(BGContext);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -20,6 +21,14 @@ export default function Intro() {
   const [playBtnHide, SetplayBtnHide] = useState(0);
 
   const Ref = useRef(null);
+
+  useEffect(() => {
+    const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
+    const s1 = Scene4Map?.shuffle[shuffle_1];
+    const s2 = Scene4Map?.shuffle_0[shuffle_1];
+    setS1(Scene4Map?.[s1]);
+    setaId(Scene4Map?.[s2]);
+  }, [s1, aId]);
 
   useEffect(() => {
     if (Assets && Ref.current) {
@@ -65,7 +74,7 @@ export default function Intro() {
                 setplaying(true);
                 const timeout = setTimeout(() => {
                   setplaying(false);
-                  setSceneId("/Scene2");
+                  setSceneId("/Scene4");
                 }, 500);
               }
             }}

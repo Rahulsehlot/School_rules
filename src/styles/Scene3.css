@@ -23,16 +23,17 @@
 
 .forward {
   position: fixed;
-  right: 1%;
-  bottom: 5%;
+  right: 3%;
+  bottom: 6%;
   width: 6%;
-  cursor: pointer;
-}
+  cursor: pointer;}
 
 .backward {
   position: fixed;
-  left: 1%;
-  bottom: 5%;
+  left: 3%;
+  bottom: 6%;
   width: 6%;
   cursor: pointer;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }

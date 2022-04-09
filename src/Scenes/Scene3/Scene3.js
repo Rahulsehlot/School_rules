@@ -115,7 +115,7 @@ export default function Scene3({
             style={{ display: hide === 1 ? "none" : "block" }}
           />
           <Image
-            src={Assets?.Scene3screen1?.sprites[3]}
+            src={Assets?.Scene3screen1?.sprites[2]}
             alt="txt"
             id="fadeup"
             className="forward"

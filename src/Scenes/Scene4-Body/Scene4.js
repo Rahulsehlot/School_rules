@@ -10,9 +10,10 @@ import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 import Scene4Map from "./Scene4Map";
 import Game1Trace1Map from "../Traces/Game1Trace1";
+import Scene3AssetMapScreen1 from "../Traces/Scene2Trace1";
 
 export default function Scene4({ scenename }) {
-  const Next = useLoadAsset(Game1Trace1Map);
+  const Next = useLoadAsset(Scene3AssetMapScreen1);
   const { Bg, setBg } = useContext(BGContext);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -29,7 +30,7 @@ export default function Scene4({ scenename }) {
     if (Assets?.Scene4) {
       Assets?.Scene4?.sounds[0]?.play();
       Assets?.Scene4?.sounds[0].on("end", () => {
-        setSceneId("/Game1Screen1");
+        setSceneId("/Scene3_1");
       });
     }
   }, []);
@@ -54,7 +55,7 @@ export default function Scene4({ scenename }) {
 
   const forward = () => {
     stop_all_sounds();
-    setSceneId("/Game1Screen1");
+    setSceneId("/Scene3_1");
   };
 
   return (
@@ -72,7 +73,7 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.Scene2?.sprites[0]}
+            src={Assets?.intro?.sprites[10]}
             alt="txt"
             id="fadeup"
             className="next"

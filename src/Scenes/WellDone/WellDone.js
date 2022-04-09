@@ -7,10 +7,9 @@ import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
-import Scene5Map from "../Scene5-Body/Scene5AssetMap";
 
-export default function WellDone({ scenename }) {
-  const Next = useLoadAsset(Scene5Map);
+export default function WellDone({ scenename, BG_sound }) {
+  // const Next = useLoadAsset(Scene5Map);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
@@ -29,7 +28,8 @@ export default function WellDone({ scenename }) {
     if (Assets?.Welldone) {
       Assets?.Welldone?.sounds[0]?.play();
       Assets?.Welldone?.sounds[0]?.on("end", () => {
-        setSceneId("/" + scenename);
+        Assets?.Welldone?.sounds[1]?.play();
+        Assets?.Welldone?.sounds[1]?.on("end", () => {});
       });
     }
   }, [Assets, isLoading]);
@@ -42,7 +42,7 @@ export default function WellDone({ scenename }) {
           name: "placeholder",
           container: Ref.current,
           renderer: "svg",
-          loop: true,
+          loop: false,
           autoplay: true,
           animationData: Assets?.Welldone?.lottie[0],
         });
@@ -86,8 +86,9 @@ export default function WellDone({ scenename }) {
   }, []);
 
   const forward = () => {
+    BG_sound?.mute(true);
     stop_all_sounds();
-    // setSceneId("/Scene3_1");
+    setSceneId("/");
   };
 
   return (
@@ -102,7 +103,7 @@ export default function WellDone({ scenename }) {
           <div ref={Ref2} className="particles_lottie_container"></div>
 
           <Image
-            src={Assets?.Scene2?.sprites[0]}
+            src={Assets?.Welldone?.sprites[0]}
             alt="txt"
             id="fadeup"
             className="next"

@@ -7,10 +7,10 @@ import lottie from "lottie-web";
 import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
-import Scene3AssetMapScreen1 from "../Traces/Scene2Trace1";
+import Scene4Map from "../Scene4-Body/Scene4Map";
 
 export default function Scene2({ scenename }) {
-  const Next = useLoadAsset(Scene3AssetMapScreen1);
+  const Next = useLoadAsset(Scene4Map);
 
   // const { Bg, Loading } = useLoadAsset(IntroMap);
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
@@ -28,7 +28,7 @@ export default function Scene2({ scenename }) {
     if (Assets?.Scene2) {
       Assets?.Scene2?.sounds[0]?.play();
       Assets?.Scene2?.sounds[0].on("end", () => {
-        setSceneId("/Scene3_1");
+        setSceneId("/Scene4");
       });
     }
   }, []);
@@ -52,7 +52,7 @@ export default function Scene2({ scenename }) {
 
   const forward = () => {
     stop_all_sounds();
-    setSceneId("/Scene3_1");
+    setSceneId("/Scene4");
   };
 
   return (
