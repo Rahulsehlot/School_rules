@@ -74,9 +74,9 @@ export default function Game1({
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
   };
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
+  const [isLoading, setisLoading] = useState(true);
 
   const [fadeR, setFadeR] = useState(0);
   const [fadeW, setFadeW] = useState(0);
@@ -92,11 +92,13 @@ export default function Game1({
 
   useEffect(() => {
     setBg(Assets?.Scene3screen1?.Bg);
-    if (Assets?.[assetID]) {
-      Assets?.[assetID]?.sounds[0]?.play();
-      Assets?.[assetID]?.sounds[0]?.on("end", () => {});
+    if (isLoading === false) {
+      if (Assets?.[assetID]) {
+        Assets?.[assetID]?.sounds[0]?.play();
+        Assets?.[assetID]?.sounds[0]?.on("end", () => {});
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   const playCorrectSound = () => {
     counter(count, setCount);
@@ -134,7 +136,7 @@ export default function Game1({
 
   const option2 = () => {
     if (playing === false) {
-      Assets?.[assetID]?.sounds[0]?.stop();
+      // Assets?.[assetID]?.sounds[0]?.stop();
       setFadeW(1);
       playWrongSound();
     }
@@ -159,10 +161,32 @@ export default function Game1({
     }
   });
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((seconds) => seconds + 1);
-    }, 1000);
-  }, []);
+    if (isLoading === false) {
+      const interval = setInterval(() => {
+        setSeconds((seconds) => seconds + 1);
+      }, 1000);
+    }
+  }, [isLoading]);
+
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    console.log(Assets?.intro?.lottie[1]);
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1500);
+  }, [isLoading]);
 
   return (
     <Scenes
@@ -170,7 +194,18 @@ export default function Game1({
       sprites={
         <>
           {/* Title */}
-          {/* <div className="mouse-move" onMouseMove={handleMouseMove}></div> */}
+
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           <Image
             src={Assets?.intro?.sprites[7]}
             alt="txt"

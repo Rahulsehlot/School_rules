@@ -13,9 +13,10 @@ export default function Scene5({ scenename }) {
   const Next = useLoadAsset(Scene5AssetMapScreen1);
 
   // const { Bg, Loading } = useLoadAsset(IntroMap);
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
+  const [isLoading, setisLoading] = useState(true);
+
   const { Bg, setBg } = useContext(BGContext);
 
   const Ref = useRef(null);
@@ -42,12 +43,43 @@ export default function Scene5({ scenename }) {
     setSceneId("/Scene5_1");
   };
 
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    console.log(Assets?.intro?.lottie[1]);
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1000);
+  }, [isLoading]);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
           {/* Title */}
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
+
           <Image
             src={Assets?.scene5?.sprites[0]}
             alt="txt"

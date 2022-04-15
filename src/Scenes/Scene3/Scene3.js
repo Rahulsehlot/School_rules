@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -52,10 +52,10 @@ export default function Scene3({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
 
@@ -66,13 +66,17 @@ export default function Scene3({
 
   useEffect(() => {
     setBg(Assets?.Scene3screen1?.Bg);
-    if (Assets?.[assetID]) {
-      Assets?.[assetID]?.sounds[0]?.play();
-      Assets?.[assetID]?.sounds[0]?.on("end", () => {
-        setSceneId("/" + scenename);
-      });
+    if (isLoading === false) {
+      if (Assets?.[assetID]) {
+        Assets?.[assetID]?.sounds[0]?.play();
+        Assets?.[assetID]?.sounds[0]?.on("end", () => {
+          const timeout = setTimeout(() => {
+            setSceneId("/" + scenename);
+          }, 1500);
+        });
+      }
     }
-  }, []);
+  }, [isLoading]);
 
   const forward = () => {
     stop_all_sounds();
@@ -84,12 +88,42 @@ export default function Scene3({
     setSceneId("/" + prevScene);
   };
 
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    console.log(Assets?.intro?.lottie[1]);
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 0.7,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 1000);
+  }, [isLoading]);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
           {/* Title */}
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
 
           <Image
             src={Assets?.[assetID]?.sprites[0]}
@@ -115,7 +149,7 @@ export default function Scene3({
             style={{ display: hide === 1 ? "none" : "block" }}
           />
           <Image
-            src={Assets?.Scene3screen1?.sprites[2]}
+            src={Assets?.Scene3screen1?.sprites[3]}
             alt="txt"
             id="fadeup"
             className="forward"

@@ -21,9 +21,13 @@ const IntroMap = {
     `${imgUrl}Skip_Btn.svg`,
   ],
 
-  sounds: [`${soundUrl}great_work.mp3`, `${soundUrl}retry.mp3`],
+  sounds: [
+    `${soundUrl}great_work.mp3`,
+    `${soundUrl}retry.mp3`,
+    `${soundUrl}EP_19_Audio_02.mp3`,
+  ],
 
-  lottie: [`${lottieUrl}Boy_Lottie.json`],
+  lottie: [`${lottieUrl}Boy_Lottie.json`, `${lottieUrl}1transition.json`],
 };
 
 export default IntroMap;

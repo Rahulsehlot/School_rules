@@ -13,12 +13,12 @@ export default function Intro({ s1, setS1, setaId, aId }) {
   const Next = useLoadAsset(Scene4Map);
   const { Bg, setBg } = useContext(BGContext);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
-    useContext(SceneContext);
+  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
   const [autoPLayState, setautoPLayState] = useState(false);
   const [playBtnHide, SetplayBtnHide] = useState(0);
+  const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
 
@@ -49,12 +49,41 @@ export default function Intro({ s1, setS1, setaId, aId }) {
     }
   }, []);
 
+  const transRef = useRef(null);
+
+  useEffect(() => {
+    if (Assets && transRef.current) {
+      lottie.loadAnimation({
+        name: "boy",
+        container: transRef.current,
+        renderer: "svg",
+        autoplay: true,
+        loop: true,
+        animationData: Assets?.intro?.lottie[1],
+        speed: 1,
+      });
+    }
+    setTimeout(() => {
+      setisLoading(false);
+    }, 500);
+  }, []);
+
   return (
     <Scenes
       Bg={Bg}
       sprites={
         <>
           {/* Title */}
+          <div
+            className="transition_bg"
+            style={{ display: isLoading ? "block" : "none" }}
+          >
+            <div
+              className="transition"
+              style={{ display: isLoading ? "block" : "none" }}
+              ref={transRef}
+            ></div>
+          </div>
 
           <Image
             src={intro?.sprites[0]}
@@ -70,19 +99,22 @@ export default function Intro({ s1, setS1, setaId, aId }) {
             onClick={() => {
               lottie.play("placeholder");
               if (playing === false) {
+                if (Assets?.intro) {
+                  Assets?.intro?.sounds[2]?.play();
+                  Assets?.intro?.sounds[2]?.on("end", () => {
+                    setSceneId("/Scene4");
+                  });
+                }
+                SetplayBtnHide(1);
                 setautoPLayState(true);
                 setplaying(true);
-                const timeout = setTimeout(() => {
-                  setplaying(false);
-                  setSceneId("/Scene4");
-                }, 500);
+                setplaying(false);
               }
             }}
             style={{
               borderRadius: "100%",
               alignItems: "center",
               justifyContent: "center",
-              display: "flex",
               cursor: playing === false ? "pointer" : "",
               display: playBtnHide === 0 ? "block" : "none",
             }}

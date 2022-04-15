@@ -7,7 +7,7 @@ const WellDoneMap = {
 
   Bg: `${imgUrl}Thank_You_BG.svg`,
 
-  sprites: [`${imgUrl}replay_Btn.svg`],
+  sprites: [`${imgUrl}replay_btn.svg`],
 
   sounds: [`${soundUrl}wellDone.mp3`, `${soundUrl}Replay_sound.mp3`],
 

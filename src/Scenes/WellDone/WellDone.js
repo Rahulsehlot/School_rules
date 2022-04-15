@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useContext, useRef, useEffect, useState } from "react";
 import { SceneContext } from "../../contexts/SceneContext";
 import Scenes from "../../utils/Scenes";
 import useLoadAsset from "../../utils/useLoadAsset";
@@ -8,15 +8,15 @@ import "../../styles/Scene2.css";
 import Image from "../../utils/elements/Image";
 import { BGContext } from "../../contexts/Background";
 
-export default function WellDone({ scenename, BG_sound }) {
+export default function WellDone({ scenename, BG_sound, setCount }) {
   // const Next = useLoadAsset(Scene5Map);
 
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
+  const [playing, setplaying] = useState(false);
 
-  const Ref = useRef(null);
   const Ref1 = useRef(null);
   const Ref2 = useRef(null);
 
@@ -25,35 +25,21 @@ export default function WellDone({ scenename, BG_sound }) {
   };
 
   useEffect(() => {
+    setBg(Assets?.Welldone?.Bg);
     if (Assets?.Welldone) {
+      setplaying(true);
       Assets?.Welldone?.sounds[0]?.play();
       Assets?.Welldone?.sounds[0]?.on("end", () => {
         Assets?.Welldone?.sounds[1]?.play();
-        Assets?.Welldone?.sounds[1]?.on("end", () => {});
+        Assets?.Welldone?.sounds[1]?.on("end", () => {
+          setplaying(false);
+        });
       });
     }
   }, [Assets, isLoading]);
 
   useEffect(() => {
-    if (Assets && Ref.current) {
-      setBg(Assets?.Welldone?.Bg);
-      try {
-        lottie.loadAnimation({
-          name: "placeholder",
-          container: Ref.current,
-          renderer: "svg",
-          loop: false,
-          autoplay: true,
-          animationData: Assets?.Welldone?.lottie[0],
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    if (Assets && Ref.current) {
+    if (Assets && Ref1.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -69,7 +55,7 @@ export default function WellDone({ scenename, BG_sound }) {
     }
   }, []);
   useEffect(() => {
-    if (Assets && Ref.current) {
+    if (Assets && Ref2.current) {
       try {
         lottie.loadAnimation({
           name: "placeholder",
@@ -86,9 +72,12 @@ export default function WellDone({ scenename, BG_sound }) {
   }, []);
 
   const forward = () => {
-    BG_sound?.mute(true);
-    stop_all_sounds();
-    setSceneId("/");
+    if (playing === false) {
+      BG_sound?.mute(true);
+      stop_all_sounds();
+      setCount(0);
+      setSceneId("/");
+    }
   };
 
   return (
@@ -97,8 +86,6 @@ export default function WellDone({ scenename, BG_sound }) {
       sprites={
         <>
           {/* Title */}
-
-          <div ref={Ref} className="WellDone_lottie_container"></div>
           <div ref={Ref1} className="text_lottie_container"></div>
           <div ref={Ref2} className="particles_lottie_container"></div>
 
@@ -106,7 +93,7 @@ export default function WellDone({ scenename, BG_sound }) {
             src={Assets?.Welldone?.sprites[0]}
             alt="txt"
             id="fadeup"
-            className="next"
+            className="ReplayBTN"
             onClick={forward}
             style={{ cursor: "pointer" }}
           />
