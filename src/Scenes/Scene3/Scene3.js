@@ -14,36 +14,8 @@ import Scene3AssetMapScreen5 from "../Traces/Scene2Trace5";
 import Scene3AssetMapScreen6 from "../Traces/Scene2Trace6";
 import Scene3AssetMapScreen7 from "../Traces/Scene2Trace7";
 
-const get_ani_map = (val) => {
-  switch (val) {
-    case "Scene3AssetMapScreen1":
-      return Scene3AssetMapScreen1;
-      break;
-    case "Scene3AssetMapScreen2":
-      return Scene3AssetMapScreen2;
-      break;
-    case "Scene3AssetMapScreen3":
-      return Scene3AssetMapScreen3;
-      break;
-    case "Scene3AssetMapScreen4":
-      return Scene3AssetMapScreen4;
-      break;
-    case "Scene3AssetMapScreen5":
-      return Scene3AssetMapScreen5;
-
-    case "Scene3AssetMapScreen6":
-      return Scene3AssetMapScreen6;
-    case "Scene3AssetMapScreen7":
-      return Scene3AssetMapScreen7;
-
-    default:
-      break;
-  }
-};
-
 export default function Scene3({
   scenename,
-  picture_Id,
   assetID,
   preLoad,
   prevScene,
@@ -52,8 +24,7 @@ export default function Scene3({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
-  const { intro } = Assets;
+  const { setSceneId, Assets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
 
@@ -62,7 +33,6 @@ export default function Scene3({
   const stop_all_sounds = () => {
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
   };
-  // setBg(Scene3screen1?.Bg);
 
   useEffect(() => {
     setBg(Assets?.Scene3screen1?.Bg);
@@ -91,7 +61,6 @@ export default function Scene3({
   const transRef = useRef(null);
 
   useEffect(() => {
-    console.log(Assets?.intro?.lottie[1]);
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -141,7 +110,7 @@ export default function Scene3({
           </div>
 
           <Image
-            src={Assets?.Scene3screen1?.sprites[2]}
+            src={Assets?.Scene3screen1?.sprites[3]}
             alt="txt"
             id="fadeup"
             className="backward"

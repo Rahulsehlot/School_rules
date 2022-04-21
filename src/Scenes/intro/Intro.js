@@ -23,14 +23,6 @@ export default function Intro({ s1, setS1, setaId, aId }) {
   const Ref = useRef(null);
 
   useEffect(() => {
-    const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
-    const s1 = Scene4Map?.shuffle[shuffle_1];
-    const s2 = Scene4Map?.shuffle_0[shuffle_1];
-    setS1(Scene4Map?.[s1]);
-    setaId(Scene4Map?.[s2]);
-  }, [s1, aId]);
-
-  useEffect(() => {
     if (Assets && Ref.current) {
       setBg(Assets?.intro?.Bg);
       try {

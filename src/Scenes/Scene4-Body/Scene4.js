@@ -64,7 +64,6 @@ export default function Scene4({ scenename }) {
   const transRef = useRef(null);
 
   useEffect(() => {
-    console.log(Assets?.intro?.lottie[1]);
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -108,12 +107,18 @@ export default function Scene4({ scenename }) {
           />
 
           <Image
-            src={Assets?.intro?.sprites[10]}
+            src={Assets?.intro?.sprites[8]}
             alt="txt"
             id="fadeup"
             className="next"
             onClick={forward}
             style={{ cursor: "pointer" }}
+          />
+          <Image
+            src={Assets?.Scene4?.sprites[1]}
+            alt="txt"
+            id="fadeup"
+            className="shadow"
           />
         </>
       }

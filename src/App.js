@@ -3,7 +3,6 @@ import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer";
 import Router from "./utils/Router";
 import "./styles/app.css";
-import Scene2 from "./Scenes/Scene2-Body/Scene2";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import useLoadAsset from "./utils/useLoadAsset";
@@ -54,10 +53,18 @@ function App() {
     loadAudio();
   }, []);
 
+  useEffect(() => {
+    const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
+    const s1 = IntroMap?.shuffle[shuffle_1];
+    const s2 = IntroMap?.shuffle_0[shuffle_1];
+    setS1(IntroMap?.[s1]);
+    setaId(IntroMap?.[s2]);
+  }, [s1, aId]);
+
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"));
-    seticon1(await LoadImage("internal/images/sound.svg"));
-    seticon2(await LoadImage("internal/images/nosound.svg"));
+    setBG_sound(await AudioPlayer2("ee03_ow_tnb_pl1/sounds/bg_sound.mp3"));
+    seticon1(await LoadImage("ee03_ow_tnb_pl1/images/sound.svg"));
+    seticon2(await LoadImage("ee03_ow_tnb_pl1/images/nosound.svg"));
   };
 
   useEffect(() => {
@@ -106,9 +113,6 @@ function App() {
       <Router sceneId="/">
         <Intro s1={s1} setS1={setS1} aId={aId} setaId={setaId} />
       </Router>
-      {/* <Router sceneId="/Scene2">
-        <Scene2 scenename={"Scene2"} />
-      </Router> */}
       <Router sceneId="/Scene4">
         <Scene4 scenename={"Scene3_7"} assetID={"Scene3Screen6"} />
       </Router>
@@ -118,7 +122,6 @@ function App() {
           prevScene={"Scene3_1"}
           assetID={"Scene3screen1"}
           preLoad={Scene3AssetMapScreen2}
-          picture_Id={0}
           hide={1}
           hideNxt={0}
         />
@@ -128,7 +131,6 @@ function App() {
           scenename={"Scene3_3"}
           prevScene={"Scene3_1"}
           assetID={"Scene3Screen2"}
-          picture_Id={1}
           preLoad={Scene3AssetMapScreen3}
           hide={0}
           hideNxt={0}
@@ -139,7 +141,6 @@ function App() {
           prevScene={"Scene3_2"}
           scenename={"Scene3_4"}
           assetID={"Scene3Screen3"}
-          picture_Id={2}
           preLoad={Scene3AssetMapScreen4}
           hide={0}
           hideNxt={0}
@@ -150,7 +151,6 @@ function App() {
           scenename={"Scene3_5"}
           prevScene={"Scene3_3"}
           assetID={"Scene3Screen4"}
-          picture_Id={3}
           preLoad={Scene3AssetMapScreen5}
           hide={0}
           hideNxt={0}
@@ -161,7 +161,6 @@ function App() {
           scenename={"Scene3_6"}
           prevScene={"Scene3_4"}
           assetID={"Scene3Screen5"}
-          picture_Id={4}
           preLoad={Scene3AssetMapScreen6}
           hide={0}
           hideNxt={0}
@@ -172,7 +171,6 @@ function App() {
           scenename={"Scene3_7"}
           prevScene={"Scene3_5"}
           assetID={"Scene3Screen6"}
-          picture_Id={5}
           preLoad={Scene3AssetMapScreen7}
           hide={0}
           hideNxt={0}
@@ -181,7 +179,6 @@ function App() {
       <Router sceneId="/Scene3_7">
         <Scene3
           scenename={"Game1Screen1"}
-          picture_Id={6}
           prevScene={"Scene3_6"}
           assetID={"Scene3Screen7"}
           preLoad={s1?.[0]}
@@ -194,7 +191,6 @@ function App() {
           scenename={"Game1Screen2"}
           assetID={aId?.[0]}
           preLoad={s1?.[1]}
-          soundID={0}
           count={count}
           setCount={setCount}
         />
@@ -204,7 +200,6 @@ function App() {
           scenename={"Game1Screen3"}
           assetID={aId?.[1]}
           preLoad={s1?.[2]}
-          soundID={1}
           count={count}
           setCount={setCount}
         />
@@ -214,7 +209,6 @@ function App() {
           scenename={"Game1Screen4"}
           assetID={aId?.[2]}
           preLoad={s1?.[3]}
-          soundID={2}
           count={count}
           setCount={setCount}
         />
@@ -234,7 +228,6 @@ function App() {
           scenename={"Game1Screen6"}
           assetID={aId?.[4]}
           preLoad={s1?.[5]}
-          soundID={4}
           count={count}
           setCount={setCount}
         />
@@ -244,7 +237,6 @@ function App() {
           scenename={"Game1Screen7"}
           assetID={aId?.[5]}
           preLoad={s1?.[6]}
-          soundID={5}
           count={count}
           setCount={setCount}
         />
@@ -254,18 +246,12 @@ function App() {
           scenename={"WellDone"}
           assetID={aId?.[6]}
           preLoad={WellDoneMap}
-          soundID={6}
           count={count}
           setCount={setCount}
         />
       </Router>
       <Router sceneId="/WellDone">
-        <WellDone
-          assetID={"WellDone"}
-          soundID={10}
-          BG_sound={BG_sound}
-          setCount={setCount}
-        />
+        <WellDone assetID={"WellDone"} setCount={setCount} />
       </Router>
     </GameContainer>
   );

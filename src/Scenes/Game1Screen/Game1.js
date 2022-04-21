@@ -23,48 +23,10 @@ import WellDoneMap from "../WellDone/WellDoneAssetMap";
 import Star from "../progress_bar/progress_bar";
 import { counter } from "../progress_bar/progress_bar_map";
 
-const get_ani_map = (val) => {
-  switch (val) {
-    case "Game1Trace1Map":
-      return Game1Trace1Map;
-      break;
-    case "Game1Trace2Map":
-      return Game1Trace2Map;
-      break;
-    case "Game1Trace3Map":
-      return Game1Trace3Map;
-      break;
-    case "Game1Trace4Map":
-      return Game1Trace4Map;
-      break;
-    case "Game1Trace5Map":
-      return Game1Trace5Map;
-    case "Game1Trace6Map":
-      return Game1Trace6Map;
-    case "Game1Trace7Map":
-      return Game1Trace7Map;
-    case "Game1Trace8Map":
-      return Game1Trace8Map;
-    case "Game1Trace9Map":
-      return Game1Trace9Map;
-    case "Game1Trace10Map":
-      return Game1Trace10Map;
-    case "Game1Trace11Map":
-      return Game1Trace11Map;
-    case "WellDoneMap":
-      return WellDoneMap;
-
-    default:
-      break;
-  }
-};
-
 export default function Game1({
   preLoad,
   scenename,
   assetID,
-  soundID,
-  loadtest,
   setCount,
   count,
 }) {
@@ -74,8 +36,7 @@ export default function Game1({
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
   };
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
-  const { intro } = Assets;
+  const { setSceneId, Assets } = useContext(SceneContext);
   const [isLoading, setisLoading] = useState(true);
 
   const [fadeR, setFadeR] = useState(0);
@@ -87,7 +48,6 @@ export default function Game1({
   useEffect(() => {
     const element = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
     setNumber(element);
-    console.log(preLoad, assetID);
   }, []);
 
   useEffect(() => {
@@ -171,7 +131,6 @@ export default function Game1({
   const transRef = useRef(null);
 
   useEffect(() => {
-    console.log(Assets?.intro?.lottie[1]);
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",
@@ -207,7 +166,7 @@ export default function Game1({
           </div>
 
           <Image
-            src={Assets?.intro?.sprites[7]}
+            src={Assets?.intro?.sprites[5]}
             alt="txt"
             id="fadeup"
             className="ClassroomText"
@@ -254,7 +213,7 @@ export default function Game1({
           />
 
           <Image
-            src={Assets?.intro?.sprites[8]}
+            src={Assets?.intro?.sprites[6]}
             alt="txt"
             id="fadeup"
             className="RightHighlight"
@@ -264,7 +223,7 @@ export default function Game1({
             }}
           />
           <Image
-            src={Assets?.intro?.sprites[9]}
+            src={Assets?.intro?.sprites[7]}
             alt="txt"
             id="fadeup"
             className="WrongHighlight"
