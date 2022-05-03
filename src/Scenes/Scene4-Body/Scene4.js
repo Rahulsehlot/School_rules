@@ -98,7 +98,11 @@ export default function Scene4({ scenename }) {
             ></div>
           </div>
 
-          <div ref={Ref} className="intro_Boy_container"></div>
+          <div
+            ref={Ref}
+            className="intro_Boy_container"
+            style={{ bottom: "11%", right: "18%" }}
+          ></div>
           <Image
             src={Assets?.Scene4?.sprites[0]}
             alt="txt"
