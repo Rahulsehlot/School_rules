@@ -32,9 +32,9 @@ import WellDoneMap from "./Scenes/WellDone/WellDoneAssetMap";
 import { SceneContext } from "./contexts/SceneContext";
 
 function App() {
-  const { Bg, Loading } = useLoadAsset(IntroMap);
-
-  const { SceneId } = useContext(SceneContext);
+  const Asset = useLoadAsset(IntroMap);
+  const [LandScape, setLandScape] = useState(false);
+  const { SceneId, setheight } = useContext(SceneContext);
 
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
@@ -46,11 +46,26 @@ function App() {
   const [s1, setS1] = useState("");
   const [aId, setaId] = useState("");
 
+  const resizer = () => {
+    setLandScape(window.innerWidth / window.innerHeight < 1.0);
+    if (window.innerWidth <= 1264) {
+      setheight("87%");
+    } else {
+      setheight("73%");
+    }
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
     }, 3000);
+
     loadAudio();
+
+    window.addEventListener("resize", resizer);
+    return () => {
+      window.removeEventListener("resize", resizer);
+    };
   }, []);
 
   useEffect(() => {
@@ -88,172 +103,194 @@ function App() {
     setmute(!mute);
   };
 
-  if (Load) return <div className="intro_Loading_screen">Loading....</div>;
+  // if (Load) return <div className="intro_Loading_screen">Loading....</div>;
+
+  // if (LandScape) {
+  //   return <h1 id="landscapeMode">Rotate your device</h1>;
+  // }
+
+  if (Load && !Asset.Loading)
+    return (
+      <div className="loadingIndicator">
+        <div className="vendorWrapper"></div>
+        <div className="playerPreloader">
+          <div className="playerPreloadCircle"></div>
+        </div>
+      </div>
+    );
 
   return (
-    <GameContainer>
-      <div className="imgTest"></div>
-      <div className="imgTest1"></div>
-      {!mute && SceneId !== "/" && (
-        <img
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
-          alt=""
-          className="mute_btn"
-          onClick={toggleMute}
-        />
-      )}
-      {mute && (
-        <img
-          src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
-          alt=""
-          className="mute_btn"
-          onClick={toggleMute}
-        />
-      )}{" "}
-      <Router sceneId="/">
-        <Intro s1={s1} setS1={setS1} aId={aId} setaId={setaId} />
-      </Router>
-      <Router sceneId="/Scene4">
-        <Scene4 scenename={"Scene3_7"} assetID={"Scene3Screen6"} />
-      </Router>
-      <Router sceneId="/Scene3_1">
-        <Scene3
-          scenename={"Scene3_2"}
-          prevScene={"Scene3_1"}
-          assetID={"Scene3screen1"}
-          preLoad={Scene3AssetMapScreen2}
-          hide={1}
-          hideNxt={0}
-        />
-      </Router>
-      <Router sceneId="/Scene3_2">
-        <Scene3
-          scenename={"Scene3_3"}
-          prevScene={"Scene3_1"}
-          assetID={"Scene3Screen2"}
-          preLoad={Scene3AssetMapScreen3}
-          hide={0}
-          hideNxt={0}
-        />
-      </Router>
-      <Router sceneId="/Scene3_3">
-        <Scene3
-          prevScene={"Scene3_2"}
-          scenename={"Scene3_4"}
-          assetID={"Scene3Screen3"}
-          preLoad={Scene3AssetMapScreen4}
-          hide={0}
-          hideNxt={0}
-        />
-      </Router>
-      <Router sceneId="/Scene3_4">
-        <Scene3
-          scenename={"Scene3_5"}
-          prevScene={"Scene3_3"}
-          assetID={"Scene3Screen4"}
-          preLoad={Scene3AssetMapScreen5}
-          hide={0}
-          hideNxt={0}
-        />
-      </Router>
-      <Router sceneId="/Scene3_5">
-        <Scene3
-          scenename={"Scene3_6"}
-          prevScene={"Scene3_4"}
-          assetID={"Scene3Screen5"}
-          preLoad={Scene3AssetMapScreen6}
-          hide={0}
-          hideNxt={0}
-        />
-      </Router>
-      <Router sceneId="/Scene3_6">
-        <Scene3
-          scenename={"Scene3_7"}
-          prevScene={"Scene3_5"}
-          assetID={"Scene3Screen6"}
-          preLoad={Scene3AssetMapScreen7}
-          hide={0}
-          hideNxt={0}
-        />
-      </Router>
-      <Router sceneId="/Scene3_7">
-        <Scene3
-          scenename={"Game1Screen1"}
-          prevScene={"Scene3_6"}
-          assetID={"Scene3Screen7"}
-          preLoad={s1?.[0]}
-          hide={0}
-          hideNxt={1}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen1">
-        <Game1
-          scenename={"Game1Screen2"}
-          assetID={aId?.[0]}
-          preLoad={s1?.[1]}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen2">
-        <Game1
-          scenename={"Game1Screen3"}
-          assetID={aId?.[1]}
-          preLoad={s1?.[2]}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen3">
-        <Game1
-          scenename={"Game1Screen4"}
-          assetID={aId?.[2]}
-          preLoad={s1?.[3]}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen4">
-        <Game1
-          scenename={"Game1Screen5"}
-          assetID={aId?.[3]}
-          preLoad={s1?.[4]}
-          soundID={3}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen5">
-        <Game1
-          scenename={"Game1Screen6"}
-          assetID={aId?.[4]}
-          preLoad={s1?.[5]}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen6">
-        <Game1
-          scenename={"Game1Screen7"}
-          assetID={aId?.[5]}
-          preLoad={s1?.[6]}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/Game1Screen7">
-        <Game1
-          scenename={"WellDone"}
-          assetID={aId?.[6]}
-          preLoad={WellDoneMap}
-          count={count}
-          setCount={setCount}
-        />
-      </Router>
-      <Router sceneId="/WellDone">
-        <WellDone assetID={"WellDone"} setCount={setCount} />
-      </Router>
-    </GameContainer>
+    <>
+      <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
+        Rotate your device
+      </h1>
+
+      <div style={{ opacity: LandScape ? 0 : 1 }}>
+        <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
+          <div className="imgTest"></div>
+          <div className="imgTest1"></div>
+          {!mute && SceneId !== "/" && (
+            <img
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`}
+              alt=""
+              className="mute_btn"
+              onClick={toggleMute}
+            />
+          )}
+          {mute && (
+            <img
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`}
+              alt=""
+              className="mute_btn"
+              onClick={toggleMute}
+            />
+          )}{" "}
+          <Router sceneId="/">
+            <Intro s1={s1} setS1={setS1} aId={aId} setaId={setaId} />
+          </Router>
+          <Router sceneId="/Scene4">
+            <Scene4 scenename={"Scene3_7"} assetID={"Scene3Screen6"} />
+          </Router>
+          <Router sceneId="/Scene3_1">
+            <Scene3
+              scenename={"Scene3_2"}
+              prevScene={"Scene3_1"}
+              assetID={"Scene3screen1"}
+              preLoad={Scene3AssetMapScreen2}
+              hide={1}
+              hideNxt={0}
+            />
+          </Router>
+          <Router sceneId="/Scene3_2">
+            <Scene3
+              scenename={"Scene3_3"}
+              prevScene={"Scene3_1"}
+              assetID={"Scene3Screen2"}
+              preLoad={Scene3AssetMapScreen3}
+              hide={0}
+              hideNxt={0}
+            />
+          </Router>
+          <Router sceneId="/Scene3_3">
+            <Scene3
+              prevScene={"Scene3_2"}
+              scenename={"Scene3_4"}
+              assetID={"Scene3Screen3"}
+              preLoad={Scene3AssetMapScreen4}
+              hide={0}
+              hideNxt={0}
+            />
+          </Router>
+          <Router sceneId="/Scene3_4">
+            <Scene3
+              scenename={"Scene3_5"}
+              prevScene={"Scene3_3"}
+              assetID={"Scene3Screen4"}
+              preLoad={Scene3AssetMapScreen5}
+              hide={0}
+              hideNxt={0}
+            />
+          </Router>
+          <Router sceneId="/Scene3_5">
+            <Scene3
+              scenename={"Scene3_6"}
+              prevScene={"Scene3_4"}
+              assetID={"Scene3Screen5"}
+              preLoad={Scene3AssetMapScreen6}
+              hide={0}
+              hideNxt={0}
+            />
+          </Router>
+          <Router sceneId="/Scene3_6">
+            <Scene3
+              scenename={"Scene3_7"}
+              prevScene={"Scene3_5"}
+              assetID={"Scene3Screen6"}
+              preLoad={Scene3AssetMapScreen7}
+              hide={0}
+              hideNxt={0}
+            />
+          </Router>
+          <Router sceneId="/Scene3_7">
+            <Scene3
+              scenename={"Game1Screen1"}
+              prevScene={"Scene3_6"}
+              assetID={"Scene3Screen7"}
+              preLoad={s1?.[0]}
+              hide={0}
+              hideNxt={1}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen1">
+            <Game1
+              scenename={"Game1Screen2"}
+              assetID={aId?.[0]}
+              preLoad={s1?.[1]}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen2">
+            <Game1
+              scenename={"Game1Screen3"}
+              assetID={aId?.[1]}
+              preLoad={s1?.[2]}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen3">
+            <Game1
+              scenename={"Game1Screen4"}
+              assetID={aId?.[2]}
+              preLoad={s1?.[3]}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen4">
+            <Game1
+              scenename={"Game1Screen5"}
+              assetID={aId?.[3]}
+              preLoad={s1?.[4]}
+              soundID={3}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen5">
+            <Game1
+              scenename={"Game1Screen6"}
+              assetID={aId?.[4]}
+              preLoad={s1?.[5]}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen6">
+            <Game1
+              scenename={"Game1Screen7"}
+              assetID={aId?.[5]}
+              preLoad={s1?.[6]}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/Game1Screen7">
+            <Game1
+              scenename={"WellDone"}
+              assetID={aId?.[6]}
+              preLoad={WellDoneMap}
+              count={count}
+              setCount={setCount}
+            />
+          </Router>
+          <Router sceneId="/WellDone">
+            <WellDone assetID={"WellDone"} setCount={setCount} />
+          </Router>
+        </GameContainer>
+      </div>
+    </>
   );
 }
 
