@@ -33,8 +33,8 @@ import { SceneContext } from "./contexts/SceneContext";
 
 function App() {
   const Asset = useLoadAsset(IntroMap);
-  const [LandScape, setLandScape] = useState(false);
-  const { SceneId, setheight } = useContext(SceneContext);
+  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape } =
+    useContext(SceneContext);
 
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
@@ -47,12 +47,17 @@ function App() {
   const [aId, setaId] = useState("");
 
   const resizer = () => {
-    setLandScape(window.innerWidth / window.innerHeight < 1.0);
     if (window.innerWidth <= 1264) {
       setheight("87%");
     } else {
       setheight("73%");
     }
+    setLandScape(window.innerWidth / window.innerHeight < 1.0);
+
+    setIpad(
+      window.innerWidth / window.innerHeight >= 1.3 &&
+        window.innerWidth / window.innerHeight <= 1.44
+    );
   };
 
   useEffect(() => {
@@ -63,6 +68,11 @@ function App() {
     loadAudio();
 
     window.addEventListener("resize", resizer);
+    setIpad(
+      window.innerWidth / window.innerHeight >= 1.3 &&
+        window.innerWidth / window.innerHeight <= 1.44
+    );
+
     return () => {
       window.removeEventListener("resize", resizer);
     };
@@ -126,7 +136,7 @@ function App() {
       </h1>
 
       <div style={{ opacity: LandScape ? 0 : 1 }}>
-        <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
+        <GameContainer>
           <div className="imgTest"></div>
           <div className="imgTest1"></div>
           {!mute && SceneId !== "/" && (

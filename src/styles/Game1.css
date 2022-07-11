@@ -2,54 +2,59 @@
   position: fixed;
   width: 80%;
   height: 20%;
-  left: 10%;
-  top: 22%;}
+  left: 8%;
+  top: 34%;
+}
 
 .Option1 {
   position: fixed;
-  width: 34%;
+  width: 25%;
   left: 5%;
-  bottom: 0%;
+  bottom: 3%;
   z-index: 3;
 }
 
 .Option2 {
   position: fixed;
-  width: 34%;
-  left: 51%;
-  bottom: 0%;
+  width: 25%;
+  left: 50%;
+  bottom: 3%;
   z-index: 3;
 }
 
 .RightHighlight {
   position: fixed;
-  width: 33.6%;
-  height: 78.8%;
+  width: 24.6%;
+  height: 67.5%;
   left: 5.3%;
   bottom: -6.5%;
-  z-index: 5;}
+  z-index: 5;
+}
 
 .WrongHighlight {
   position: fixed;
-  width: 33.6%;
-  height: 78.8%;
+  width: 24.6%;
+  height: 67.5%;
   left: 51.3%;
   bottom: -6.5%;
-  z-index: 5;}
+  z-index: 5;
+}
 
 .text_lottie_container {
+  width: 70%;
+  height: 67%;
   position: fixed;
-  right: 10%;
-  top: 3%;
-  width: 100%;
-  height: 100%;}
+  left: 5%;
+  bottom: -2%;
+  z-index: 1;
+}
 
 .particles_lottie_container {
   position: fixed;
   left: 21%;
-  top: 22%;
-  width: 60%;
-  height: 60%;
+  top: 39%;
+  width: 52%;
+  height: 53%;
 }
 
 .WellDone_lottie_container {
@@ -62,25 +67,25 @@
 
 .option1_div {
   position: fixed;
-  border-radius: 100pt;
+  border-radius: 77pt;
   left: 7.5%;
-  top: 40.7%;
-  width: 30%;
-  height: 53.5%;
+  top: 52.4%;
+  width: 23%;
+  height: 40.5%;
   z-index: 4;
 }
 
 .option2_div {
   position: fixed;
-  border-radius: 100pt;
+  border-radius: 77pt;
   left: 53.5%;
-  top: 40.4%;
-  width: 30%;
-  height: 53.5%;
+  top: 52.4%;
+  width: 23%;
+  height: 40.5%;
   z-index: 4;
 }
 
-.shadow{
+.shadow {
   position: fixed;
   left: 67.5%;
   top: 85%;

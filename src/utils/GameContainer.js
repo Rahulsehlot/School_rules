@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
+import { SceneContext } from "./../contexts/SceneContext";
+import { useContext } from "react";
 
 export default function GameContainer({ children, LandScape, setLandScape }) {
-  const [scale, setscale] = useState((window.innerWidth * 0.67) / 1000);
+  const [scale, setscale] = useState((window.innerWidth * 0.75) / 1000);
+  const { Ipad } = useContext(SceneContext);
 
   useEffect(() => {
     window.addEventListener("resize", onResize);
-    setLandScape(window.innerWidth / window.innerHeight < 1.0);
     return () => {
       window.removeEventListener("resize", onResize);
     };
   }, []);
 
   const onResize = () => {
-    const scale = (window.innerWidth * 0.67) / 1000;
+    const scale = (window.innerWidth * 0.75) / 1000;
     setscale(scale);
-    setLandScape(window.innerWidth / window.innerHeight < 1.0);
   };
 
   return (
@@ -29,11 +30,10 @@ export default function GameContainer({ children, LandScape, setLandScape }) {
           left: "-210px",
           bottom: "0px",
           transform: `scale(${scale})`,
-          overflow: "hidden",
+          overflow: Ipad ? "" : "hidden",
         }}
       >
-        {/* {!LandScape && children} */}
-        {children}
+        {!LandScape && children}
       </div>
     </div>
   );
