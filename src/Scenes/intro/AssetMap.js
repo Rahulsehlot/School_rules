@@ -28,6 +28,8 @@ const IntroMap = {
     `${imgUrl}sb_19_option_box_green_highlight.svg`,
     `${imgUrl}sb_19_option_box_red_highlight.svg`,
     `${imgUrl}skip_btn.svg`,
+    `${imgUrl}foreground_bg.svg`,
+    `${imgUrl}school.svg`,
   ],
 
   sounds: [

@@ -15,7 +15,7 @@
 }
 
 .intro_Boy_container {
-  width: 14%;
+  width: 12%;
   position: fixed;
   bottom: 11%;
   right: 20%;
@@ -31,10 +31,10 @@
 }
 
 .next {
-  width: 5%;
+  width: 4%;
   position: fixed;
   bottom: 2%;
-  right: 12%;
+  right: 21%;
   z-index: 798787897;
 }
 
@@ -396,4 +396,44 @@
   z-index: 1000;
   animation: fade infinite 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   text-align: center;
+}
+
+.senses_foreground {
+  position: fixed;
+  bottom: 0%;
+  left: 7%;
+  height: 73%;
+  width: 81%;
+}
+
+.p3 {
+  position: fixed;
+  bottom: 12%;
+  left: 25%;
+  width: 18%;
+  z-index: 1;
+}
+
+.p2 {
+  position: fixed;
+  left: 59%;
+  bottom: 35%;
+  width: 8%;
+  height: 21%;
+}
+
+.p4 {
+  position: fixed;
+  left: 28%;
+  bottom: 33%;
+  width: 36%;
+  height: 27%;
+}
+
+.p1 {
+  position: fixed;
+  left: 22%;
+  bottom: 35%;
+  width: 8%;
+  height: 21%;
 }

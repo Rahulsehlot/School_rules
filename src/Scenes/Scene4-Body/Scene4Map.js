@@ -7,7 +7,15 @@ const Scene4Map = {
 
   Bg: `${imgUrl}classroom_bg.svg`,
 
-  sprites: [`${imgUrl}classroom_bg_text.svg`, `${imgUrl}shadow.svg`],
+  sprites: [
+    `${imgUrl}classroom_bg_text.svg`,
+    `${imgUrl}shadow.svg`,
+    `${imgUrl}classroom_foreground.svg`,
+    `${imgUrl}classroom_prop_01.svg`,
+    `${imgUrl}classroom_prop_02.svg`,
+    `${imgUrl}classroom_prop_03.svg`,
+    `${imgUrl}classroom_prop_04.svg`,
+  ],
 
   sounds: [`${soundurl}scene4_audio.mp3`],
 

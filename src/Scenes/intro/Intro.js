@@ -84,6 +84,20 @@ export default function Intro({ s1, setS1, setaId, aId }) {
             className="senses_txt_img"
           />
           <Image
+            src={intro?.sprites[9]}
+            alt="txt"
+            id="fadeup"
+            className="senses_foreground"
+          />
+
+          <Image
+            src={intro?.sprites[10]}
+            alt="txt"
+            id="fadeup"
+            className="school"
+          />
+
+          <Image
             className="play_btn"
             src={intro?.sprites[1]}
             alt="txt"

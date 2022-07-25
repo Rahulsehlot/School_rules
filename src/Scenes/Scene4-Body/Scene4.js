@@ -50,7 +50,7 @@ export default function Scene4({ scenename }) {
         Assets?.Scene4?.sounds[0]?.play();
         lottie.play("placeholder");
         Assets?.Scene4?.sounds[0].on("end", () => {
-          setSceneId("/Scene3_1");
+          // setSceneId("/Scene3_1");
         });
       }
     }
@@ -101,7 +101,7 @@ export default function Scene4({ scenename }) {
           <div
             ref={Ref}
             className="intro_Boy_container"
-            style={{ bottom: "11%", right: "18%" }}
+            style={{ bottom: "11%", right: "23%" }}
           ></div>
           <Image
             src={Assets?.Scene4?.sprites[0]}
@@ -123,6 +123,38 @@ export default function Scene4({ scenename }) {
             alt="txt"
             id="fadeup"
             className="shadow"
+          />
+          <Image
+            src={Assets?.Scene4?.sprites[2]}
+            alt="txt"
+            id="fadeup"
+            className="classroom_foreground"
+            style={{ position: "fixed", bottom: "0%", left: "0%" }}
+          />
+
+          <Image
+            src={Assets?.Scene4?.sprites[3]}
+            alt="txt"
+            id="fadeup"
+            className="p1"
+          />
+          <Image
+            src={Assets?.Scene4?.sprites[4]}
+            alt="txt"
+            id="fadeup"
+            className="p2"
+          />
+          <Image
+            src={Assets?.Scene4?.sprites[5]}
+            alt="txt"
+            id="fadeup"
+            className="p3"
+          />
+          <Image
+            src={Assets?.Scene4?.sprites[6]}
+            alt="txt"
+            id="fadeup"
+            className="p4"
           />
         </>
       }
