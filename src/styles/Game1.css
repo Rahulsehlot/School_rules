@@ -1,16 +1,16 @@
 .ClassroomText {
   position: fixed;
-  width: 80%;
-  height: 20%;
-  left: 8%;
-  top: 34%;
+  width: 74%;
+  height: 25%;
+  left: 18%;
+  top: 0%;
 }
 
 .Option1 {
   position: fixed;
   width: 25%;
   left: 5%;
-  bottom: 3%;
+  bottom: 15%;
   z-index: 3;
 }
 
@@ -18,7 +18,7 @@
   position: fixed;
   width: 25%;
   left: 50%;
-  bottom: 3%;
+  bottom: 15%;
   z-index: 3;
 }
 
@@ -27,7 +27,7 @@
   width: 24.6%;
   height: 67.5%;
   left: 5.3%;
-  bottom: -6.5%;
+  bottom: 5.5%;
   z-index: 5;
 }
 
@@ -36,7 +36,7 @@
   width: 24.6%;
   height: 67.5%;
   left: 51.3%;
-  bottom: -6.5%;
+  bottom: 5.5%;
   z-index: 5;
 }
 
@@ -69,7 +69,7 @@
   position: fixed;
   border-radius: 77pt;
   left: 7.5%;
-  top: 52.4%;
+  top: 40.4%;
   width: 23%;
   height: 40.5%;
   z-index: 4;
@@ -79,7 +79,7 @@
   position: fixed;
   border-radius: 77pt;
   left: 53.5%;
-  top: 52.4%;
+  top: 40.4%;
   width: 23%;
   height: 40.5%;
   z-index: 4;

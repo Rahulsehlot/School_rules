@@ -1,8 +1,22 @@
 .Questions {
   position: fixed;
   left: 34%;
-  top: 35%;
-  width: 26%;
+  top: 5%;
+  width: 35%;
+}
+
+.Questions_Text3 {
+  height: 100%;
+}
+.Questions_text__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92%;
+  bottom: 10%;
+  left: 5%;
+  position: fixed;
+  height: 15%;
 }
 
 .Questions_Text {

@@ -100,12 +100,13 @@ export default function Scene3({
             id="fadeup"
             className="Questions"
           />
-          <div className="Questions_Text">
+          <div className="Questions_text__container">
+
             <Image
-              className="Questions_Img"
               src={Assets?.[assetID]?.sprites[1]}
               alt="txt"
               id="fadeup"
+              className="Questions_Text3"
             />
           </div>
 

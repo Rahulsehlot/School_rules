@@ -8,10 +8,11 @@
 }
 
 .senses_txt_img {
-  width: 48%;
+  width: 50%;
   position: fixed;
-  bottom: 10%;
-  left: 13%;
+  top: 40%;
+  left: 20%;
+  z-index: 2;
 }
 
 .intro_Boy_container {
@@ -293,7 +294,7 @@
   position: fixed;
   left: 0%;
   top: -17%;
-  width: 98%;
+  width: 100%;
   z-index: 5046;
   /* background-color: rgb(0,0,108); */
 }
@@ -399,11 +400,10 @@
 }
 
 .senses_foreground {
+  z-index: 1;
   position: fixed;
   bottom: 0%;
-  left: 7%;
-  height: 73%;
-  width: 81%;
+  width: 100%;
 }
 
 .p3 {
@@ -436,4 +436,27 @@
   bottom: 35%;
   width: 8%;
   height: 21%;
+}
+
+.progress-bar-container {
+  position: fixed;
+  top: 1%;
+  right: 1%;
+  width: 20%;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.progress-bar-background {
+}
+.progress-bar-star-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: -17.5%;
+  width: 60%;
+}
+#progress-bar-stars {
+  width: 20%;
 }
