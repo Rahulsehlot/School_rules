@@ -36,7 +36,7 @@ export default function Game1({
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
   };
 
-  const { setSceneId, Assets, LandScape } = useContext(SceneContext);
+  const { setSceneId, Assets, LandScape, setHideAllButtons } = useContext(SceneContext);
   const [isLoading, setisLoading] = useState(true);
 
   const [fadeR, setFadeR] = useState(0);
@@ -131,6 +131,7 @@ export default function Game1({
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",

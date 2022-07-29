@@ -13,6 +13,7 @@ export default function SceneContextProvider({ children }) {
   const [Ipad, setIpad] = useState(false);
   const [LandScape, setLandScape] = useState(false);
   const [transition, setTransition] = useState(null);
+  const [hideAllButtons, setHideAllButtons] = useState(true)
   // loading part
   useEffect(() => {
     setTimeout(() => {
@@ -41,6 +42,8 @@ export default function SceneContextProvider({ children }) {
         setcount,
         Ipad,
         setIpad,
+        hideAllButtons,
+        setHideAllButtons
       }}
     >
       {children}

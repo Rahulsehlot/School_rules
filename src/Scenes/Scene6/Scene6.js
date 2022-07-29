@@ -52,7 +52,7 @@ export default function Scene6({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } =
+  const { SceneId, setHideAllButtons setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);

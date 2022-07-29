@@ -42,19 +42,20 @@
 
 .text_lottie_container {
   width: 70%;
-  height: 67%;
+  height: 80%;
   position: fixed;
-  left: 5%;
-  bottom: -2%;
+  left: 10%;
+  bottom: 12%;
   z-index: 1;
 }
 
 .particles_lottie_container {
+  width: 70%;
+  height: 60%;
   position: fixed;
-  left: 21%;
-  top: 39%;
-  width: 52%;
-  height: 53%;
+  left: 20%;
+  bottom: 25%;
+  z-index: 2;
 }
 
 .WellDone_lottie_container {

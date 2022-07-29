@@ -30,6 +30,8 @@ const IntroMap = {
     `${imgUrl}skip_btn.svg`,
     `${imgUrl}foreground_bg.svg`,
     `${imgUrl}school.svg`,
+    `${imgUrl}buttons_15.svg`,
+    `${imgUrl}skip_btn.svg`,
   ],
 
   sounds: [

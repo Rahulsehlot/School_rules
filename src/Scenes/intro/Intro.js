@@ -13,7 +13,7 @@ export default function Intro({ s1, setS1, setaId, aId }) {
   const Next = useLoadAsset(Scene4Map);
   const { Bg, setBg } = useContext(BGContext);
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
   const [autoPLayState, setautoPLayState] = useState(false);
@@ -44,6 +44,7 @@ export default function Intro({ s1, setS1, setaId, aId }) {
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",

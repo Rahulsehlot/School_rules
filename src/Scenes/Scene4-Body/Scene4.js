@@ -16,7 +16,7 @@ export default function Scene4({ scenename }) {
   const Next = useLoadAsset(Scene3AssetMapScreen1);
   const { Bg, setBg } = useContext(BGContext);
 
-  const { SceneId, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
@@ -50,7 +50,7 @@ export default function Scene4({ scenename }) {
         Assets?.Scene4?.sounds[0]?.play();
         lottie.play("placeholder");
         Assets?.Scene4?.sounds[0].on("end", () => {
-          // setSceneId("/Scene3_1");
+          setSceneId("/Scene3_1");
         });
       }
     }
@@ -64,6 +64,7 @@ export default function Scene4({ scenename }) {
   const transRef = useRef(null);
 
   useEffect(() => {
+    setHideAllButtons(isLoading)
     if (Assets && transRef.current) {
       lottie.loadAnimation({
         name: "boy",

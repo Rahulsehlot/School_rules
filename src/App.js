@@ -32,13 +32,16 @@ import WellDoneMap from "./Scenes/WellDone/WellDoneAssetMap";
 import { SceneContext } from "./contexts/SceneContext";
 import { LoadJson } from "./utils/loadJson";
 import Star from "./Scenes/progress_bar/progress_bar";
+import Image from "./utils/elements/Image";
+import { SceneMap } from "./Scenes/SceneMap";
+import { Howl } from "howler";
 
 function App() {
   if (document.getElementById('progressBarID')) {
     document.getElementById('progressBarID').style.display = "none"
   }
   const Asset = useLoadAsset(IntroMap);
-  const { SceneId, setheight, Ipad, setIpad, LandScape, setLandScape, isLoading, setTransition } =
+  const { SceneId, setHideAllButtons, setheight, Ipad, setIpad, LandScape, setLandScape, isLoading, setTransition, Assets, hideAllButtons, setSceneId } =
     useContext(SceneContext);
 
   const [Load, setLoad] = useState(true);
@@ -50,11 +53,33 @@ function App() {
   const [count, setCount] = useState(0);
   const [s1, setS1] = useState("");
   const [aId, setaId] = useState("");
+  const [hidePrevButton, setHidePrevButton] = useState(true)
+  const [hideNextButton, setNextPrevButton] = useState(true)
+  const [hideSkipButton, setHideSkipButton] = useState(false)
   const loadLottie = async () => {
     // const data = await LoadJson(`ee02_nt_1to10_srn/lottie/transition_01.json`);
     const data = await LoadJson(`ee03_ow_tnb_pl1/lottie/1transition.json`);
     setTransition(data);
   };
+  const currentItem = SceneMap.find((item) => {
+    return (item.currentSceneName === SceneId)
+  })
+  const stop_all_sounds = () => {
+    // Fix this please
+  };
+  const handleForward = async () => {
+    // await stop_all_sounds()
+    // setSceneId(currentItem.nextSceneName)
+  }
+  const handleBackward = async () => {
+    // await stop_all_sounds()
+    // setSceneId(currentItem.prevSceneName)
+  }
+  useEffect(() => {
+    setHidePrevButton(currentItem?.hidePrev)
+    setNextPrevButton(currentItem?.hideNext)
+    setHideSkipButton(currentItem?.hideForward)
+  }, [SceneId, hideAllButtons])
   const resizer = () => {
     if (window.innerWidth <= 1264) {
       setheight("87%");
@@ -68,7 +93,6 @@ function App() {
       window.innerWidth / window.innerHeight <= 1.44
     );
   };
-
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
@@ -86,7 +110,6 @@ function App() {
       window.removeEventListener("resize", resizer);
     };
   }, []);
-
   useEffect(() => {
     const shuffle_1 = Math.floor(0 + Math.random() * (2 - 0));
     const s1 = IntroMap?.shuffle[shuffle_1];
@@ -137,7 +160,6 @@ function App() {
         </div>
       </div>
     );
-
   return (
     <>
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">
@@ -150,6 +172,7 @@ function App() {
           alt=""
           className="mute_btn"
           onClick={toggleMute}
+          style={{ visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
         />
       )}
       {mute && (
@@ -158,8 +181,33 @@ function App() {
           alt=""
           className="mute_btn"
           onClick={toggleMute}
+          style={{ visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
         />
       )}{" "}
+      <Image
+        src={Assets?.intro?.sprites[11]}
+        alt="txt"
+        id="fadeup"
+        className="backwardButton"
+        onClick={handleBackward}
+        style={{ display: hidePrevButton ? 'none' : 'block', visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
+      />
+      <Image
+        src={Assets?.intro?.sprites[11]}
+        alt="txt"
+        id="fadeup"
+        className="forwardButton"
+        onClick={handleForward}
+        style={{ display: hideNextButton ? 'none' : 'block', visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
+      />
+      <Image
+        src={Assets?.intro?.sprites[12]}
+        alt="txt"
+        id="fadeup"
+        className="forwardButton"
+        onClick={handleForward}
+        style={{ display: hideSkipButton ? 'none' : 'block', visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
+      />
       <div style={{ opacity: LandScape ? 0 : 1 }}>
         <GameContainer>
           <div className="imgTest"></div>
