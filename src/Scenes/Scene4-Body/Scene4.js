@@ -16,7 +16,8 @@ export default function Scene4({ scenename }) {
   const Next = useLoadAsset(Scene3AssetMapScreen1);
   const { Bg, setBg } = useContext(BGContext);
 
-  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, skipButtonPressed,
+    setskipButtonPressed, } = useContext(SceneContext);
   const { intro } = Assets;
 
   const Ref = useRef(null);
@@ -25,7 +26,12 @@ export default function Scene4({ scenename }) {
   const stop_all_sounds = () => {
     Assets?.Scene4?.sounds?.map((v) => v?.stop());
   };
-
+  useEffect(() => {
+    if (skipButtonPressed) {
+      forward()
+      setskipButtonPressed(false)
+    }
+  }, [skipButtonPressed])
   useEffect(() => {
     setBg(Assets?.Scene4?.Bg);
     if (Assets && Ref.current) {
@@ -102,7 +108,7 @@ export default function Scene4({ scenename }) {
           <div
             ref={Ref}
             className="intro_Boy_container"
-            style={{ bottom: "11%", right: "23%" }}
+            style={{ bottom: "11%", right: "21%" }}
           ></div>
           <Image
             src={Assets?.Scene4?.sprites[0]}
@@ -111,14 +117,14 @@ export default function Scene4({ scenename }) {
             className="Scene4_txt_img"
           />
 
-          <Image
+          {/* <Image
             src={Assets?.intro?.sprites[8]}
             alt="txt"
             id="fadeup"
             className="next"
             onClick={forward}
             style={{ cursor: "pointer" }}
-          />
+          /> */}
           <Image
             src={Assets?.Scene4?.sprites[1]}
             alt="txt"

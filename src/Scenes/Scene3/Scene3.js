@@ -24,7 +24,10 @@ export default function Scene3({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { setSceneId, Assets, setHideAllButtons } = useContext(SceneContext);
+  const { setSceneId, Assets, setHideAllButtons, nextButtonPressed,
+    backButtonPressed,
+    setnextButtonPressed,
+    setbackButtonPressed, } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext);
   const [isLoading, setisLoading] = useState(true);
 
@@ -47,7 +50,16 @@ export default function Scene3({
       }
     }
   }, [isLoading]);
-
+  useEffect(() => {
+    if (nextButtonPressed) {
+      forward()
+      setnextButtonPressed(false)
+    }
+    if (backButtonPressed) {
+      backward()
+      setbackButtonPressed(false)
+    }
+  }, [nextButtonPressed, backButtonPressed])
   const forward = () => {
     stop_all_sounds();
     setSceneId("/" + scenename);
@@ -111,7 +123,7 @@ export default function Scene3({
             />
           </div>
 
-          <Image
+          {/* <Image
             src={Assets?.Scene3screen1?.sprites[3]}
             alt="txt"
             id="fadeup"
@@ -126,7 +138,7 @@ export default function Scene3({
             className="forward"
             onClick={forward}
             style={{ display: hideNxt === 1 ? "none" : "block" }}
-          />
+          /> */}
         </>
       }
     />

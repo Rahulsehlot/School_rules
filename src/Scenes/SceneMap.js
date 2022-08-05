@@ -24,7 +24,7 @@ export const SceneMap = [
         prevSceneName: '/Scene4',
         currentSceneName: '/Scene3_1',
         nextSceneName: '/Scene3_2',
-        hidePrev: false,
+        hidePrev: true,
         hideNext: false,
         hideForward: true,
         assetID: ''

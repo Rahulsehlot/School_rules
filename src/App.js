@@ -41,7 +41,9 @@ function App() {
     document.getElementById('progressBarID').style.display = "none"
   }
   const Asset = useLoadAsset(IntroMap);
-  const { SceneId, setHideAllButtons, setheight, Ipad, setIpad, LandScape, setLandScape, isLoading, setTransition, Assets, hideAllButtons, setSceneId } =
+  const { SceneId, setHideAllButtons, setheight, Ipad, setIpad, LandScape, setLandScape, isLoading, setTransition, Assets, hideAllButtons, setSceneId, setnextButtonPressed,
+    setbackButtonPressed,
+    setskipButtonPressed, } =
     useContext(SceneContext);
 
   const [Load, setLoad] = useState(true);
@@ -64,17 +66,6 @@ function App() {
   const currentItem = SceneMap.find((item) => {
     return (item.currentSceneName === SceneId)
   })
-  const stop_all_sounds = () => {
-    // Fix this please
-  };
-  const handleForward = async () => {
-    // await stop_all_sounds()
-    // setSceneId(currentItem.nextSceneName)
-  }
-  const handleBackward = async () => {
-    // await stop_all_sounds()
-    // setSceneId(currentItem.prevSceneName)
-  }
   useEffect(() => {
     setHidePrevButton(currentItem?.hidePrev)
     setNextPrevButton(currentItem?.hideNext)
@@ -189,7 +180,7 @@ function App() {
         alt="txt"
         id="fadeup"
         className="backwardButton"
-        onClick={handleBackward}
+        onClick={() => setbackButtonPressed(true)}
         style={{ display: hidePrevButton ? 'none' : 'block', visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
       />
       <Image
@@ -197,7 +188,7 @@ function App() {
         alt="txt"
         id="fadeup"
         className="forwardButton"
-        onClick={handleForward}
+        onClick={() => setnextButtonPressed(true)}
         style={{ display: hideNextButton ? 'none' : 'block', visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
       />
       <Image
@@ -205,7 +196,7 @@ function App() {
         alt="txt"
         id="fadeup"
         className="forwardButton"
-        onClick={handleForward}
+        onClick={() => setskipButtonPressed(true)}
         style={{ display: hideSkipButton ? 'none' : 'block', visibility: hideAllButtons || LandScape ? 'hidden' : 'visible' }}
       />
       <div style={{ opacity: LandScape ? 0 : 1 }}>

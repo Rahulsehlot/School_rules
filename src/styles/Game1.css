@@ -1,14 +1,14 @@
 .ClassroomText {
   position: fixed;
-  width: 74%;
+  width: 75%;
   height: 25%;
   left: 18%;
-  top: 0%;
+  top: 5%;
 }
 
 .Option1 {
   position: fixed;
-  width: 25%;
+  width: 28%;
   left: 5%;
   bottom: 15%;
   z-index: 3;
@@ -16,7 +16,7 @@
 
 .Option2 {
   position: fixed;
-  width: 25%;
+  width: 28%;
   left: 50%;
   bottom: 15%;
   z-index: 3;
@@ -24,19 +24,19 @@
 
 .RightHighlight {
   position: fixed;
-  width: 24.6%;
-  height: 67.5%;
+  width: 27.6%;
+  height: 71.5%;
   left: 5.3%;
-  bottom: 5.5%;
+  bottom: 6.5%;
   z-index: 5;
 }
 
 .WrongHighlight {
   position: fixed;
-  width: 24.6%;
-  height: 67.5%;
+  width: 27.6%;
+  height: 71.5%;
   left: 51.3%;
-  bottom: 5.5%;
+  bottom: 6.5%;
   z-index: 5;
 }
 
@@ -70,9 +70,9 @@
   position: fixed;
   border-radius: 77pt;
   left: 7.5%;
-  top: 40.4%;
-  width: 23%;
-  height: 40.5%;
+  top: 35.4%;
+  width: 25%;
+  height: 44.5%;
   z-index: 4;
 }
 
@@ -80,9 +80,9 @@
   position: fixed;
   border-radius: 77pt;
   left: 53.5%;
-  top: 40.4%;
-  width: 23%;
-  height: 40.5%;
+  top: 35.4%;
+  width: 25%;
+  height: 44.5%;
   z-index: 4;
 }
 
