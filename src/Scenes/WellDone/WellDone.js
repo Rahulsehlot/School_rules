@@ -14,7 +14,7 @@ export default function WellDone({ scenename, setCount }) {
   const { SceneId, setHideAllButtons, setSceneId, isLoading, setisLoading, Assets, setAssets,
     setnextButtonPressed,
     setbackButtonPressed,
-    setskipButtonPressed } =
+    setskipButtonPressed, BG_sound } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
@@ -83,6 +83,7 @@ export default function WellDone({ scenename, setCount }) {
       setnextButtonPressed(false)
       setbackButtonPressed(false)
       setskipButtonPressed(false)
+      BG_sound?.stop()
     }
   };
 

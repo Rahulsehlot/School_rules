@@ -52,13 +52,21 @@ export default function Scene4({ scenename }) {
 
   useEffect(() => {
     if (isLoading === false) {
-      if (Assets?.Scene4) {
-        Assets?.Scene4?.sounds[0]?.play();
+      if (Assets?.intro) {
         lottie.play("placeholder");
-        Assets?.Scene4?.sounds[0].on("end", () => {
-          setSceneId("/Scene3_1");
+        Assets?.intro?.sounds[2]?.play();
+        Assets?.intro?.sounds[2]?.on("end", () => {
+          lottie.stop("placeholder")
+          if (Assets?.Scene4) {
+            Assets?.Scene4?.sounds[0]?.play();
+            lottie.play("placeholder");
+            Assets?.Scene4?.sounds[0].on("end", () => {
+              setSceneId("/Scene3_1");
+            });
+          }
         });
       }
+
     }
   }, [isLoading]);
 

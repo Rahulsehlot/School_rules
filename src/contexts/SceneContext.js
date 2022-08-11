@@ -17,6 +17,8 @@ export default function SceneContextProvider({ children }) {
   const [nextButtonPressed, setnextButtonPressed] = useState(false)
   const [backButtonPressed, setbackButtonPressed] = useState(false)
   const [skipButtonPressed, setskipButtonPressed] = useState(false)
+  const [playBGSound, setPlayBGSound] = useState(false)
+  const [BG_sound, setBG_sound] = useState(null);
   // loading part
   useEffect(() => {
     setTimeout(() => {
@@ -53,7 +55,9 @@ export default function SceneContextProvider({ children }) {
         setnextButtonPressed,
         setbackButtonPressed,
         setskipButtonPressed,
-
+        playBGSound,
+        setPlayBGSound,
+        BG_sound, setBG_sound
       }}
     >
       {children}

@@ -13,11 +13,11 @@ export default function Intro({ s1, setS1, setaId, aId }) {
   const Next = useLoadAsset(Scene4Map);
   const { Bg, setBg } = useContext(BGContext);
 
-  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setHideAllButtons, setSceneId, Assets, setAssets, playBGSound, setPlayBGSound, BG_sound } = useContext(SceneContext);
   const { intro } = Assets;
   const [playing, setplaying] = useState(false);
   const [autoPLayState, setautoPLayState] = useState(false);
-  const [playBtnHide, SetplayBtnHide] = useState(0);
+  const [playBtnHide, SetplayBtnHide] = useState(false);
   const [isLoading, setisLoading] = useState(true);
 
   const Ref = useRef(null);
@@ -99,34 +99,39 @@ export default function Intro({ s1, setS1, setaId, aId }) {
           />
 
           <Image
-            className="play_btn"
+            className={`play_btn  ${playBtnHide ? "play_btnAnim" : ""}`}
             src={intro?.sprites[1]}
             alt="txt"
-            id="fadeup"
+            // id="fadeup"
             onClick={() => {
-              lottie.play("placeholder");
-              if (playing === false) {
-                if (Assets?.intro) {
-                  Assets?.intro?.sounds[2]?.play();
-                  Assets?.intro?.sounds[2]?.on("end", () => {
-                    setSceneId("/Scene4");
-                  });
-                }
-                SetplayBtnHide(1);
-                setautoPLayState(true);
-                setplaying(true);
-                setplaying(false);
-              }
+              SetplayBtnHide(true);
+              setautoPLayState(true);
+              BG_sound?.play()
+              setPlayBGSound(true)
+              // setplaying(true);
+              // setplaying(false);
+              setTimeout(() => {
+                setSceneId("/Scene4");
+              }, [1500])
+
+              // lottie.play("placeholder");
+              // if (playing === false) {
+              //   if (Assets?.intro) {
+              //     Assets?.intro?.sounds[2]?.play();
+              //     Assets?.intro?.sounds[2]?.on("end", () => {
+              //     });
+              //   }
+              //   //
+              // }
             }}
             style={{
               borderRadius: "100%",
               alignItems: "center",
               justifyContent: "center",
               cursor: playing === false ? "pointer" : "",
-              display: playBtnHide === 0 ? "block" : "none",
             }}
           />
-          <div ref={Ref} className="intro_Boy_container"></div>
+          <div ref={Ref} className={`intro_Boy_container`}></div>
         </>
       }
     />

@@ -43,12 +43,12 @@ function App() {
   const Asset = useLoadAsset(IntroMap);
   const { SceneId, setHideAllButtons, setheight, Ipad, setIpad, LandScape, setLandScape, isLoading, setTransition, Assets, hideAllButtons, setSceneId, setnextButtonPressed,
     setbackButtonPressed,
-    setskipButtonPressed, } =
+    setskipButtonPressed, playBGSound, setPlayBGSound, BG_sound, setBG_sound } =
     useContext(SceneContext);
 
   const [Load, setLoad] = useState(true);
   const [mute, setmute] = useState(false);
-  const [BG_sound, setBG_sound] = useState(null);
+
   const [icon1, seticon1] = useState(null);
   const [icon2, seticon2] = useState(null);
   const [playing, setplaying] = useState(false);
@@ -115,12 +115,14 @@ function App() {
     seticon2(await LoadImage("ee03_ow_tnb_pl1/images/nosound.svg"));
   };
 
-  useEffect(() => {
-    if (BG_sound !== null && SceneId !== "/" && playing === false) {
-      setplaying(true);
-      BG_sound?.play();
-    }
-  }, [BG_sound, SceneId]);
+  // useEffect(() => {
+  //   if (playBGSound) {
+  //     if (BG_sound !== null && SceneId !== "/" && playing === false) {
+  //       setplaying(true);
+  //       BG_sound?.play();
+  //     }
+  //   }
+  // }, [BG_sound, SceneId, playBGSound]);
 
   useEffect(() => {
     if (BG_sound) {
