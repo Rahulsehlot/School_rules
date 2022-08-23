@@ -23,6 +23,7 @@ export default function Scene5({ scenename }) {
 
   const stop_all_sounds = () => {
     Assets?.scene5?.sounds?.map((v) => v?.stop());
+    Assets?.scene5?.sounds[0]?.stop();
   };
 
   useEffect(() => {

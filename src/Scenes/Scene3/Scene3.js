@@ -23,7 +23,6 @@ export default function Scene3({
   hide,
 }) {
   const Next = useLoadAsset(preLoad);
-
   const { setSceneId, Assets, setHideAllButtons, nextButtonPressed,
     backButtonPressed,
     setnextButtonPressed,
@@ -35,6 +34,7 @@ export default function Scene3({
 
   const stop_all_sounds = () => {
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
+    Assets?.[assetID]?.sounds[0]?.stop();
   };
 
   useEffect(() => {
@@ -54,6 +54,7 @@ export default function Scene3({
     if (nextButtonPressed) {
       forward()
       setnextButtonPressed(false)
+
     }
     if (backButtonPressed) {
       backward()
@@ -63,11 +64,13 @@ export default function Scene3({
   const forward = () => {
     stop_all_sounds();
     setSceneId("/" + scenename);
+
   };
 
   const backward = () => {
     stop_all_sounds();
     setSceneId("/" + prevScene);
+
   };
 
   const transRef = useRef(null);

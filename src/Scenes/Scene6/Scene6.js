@@ -52,7 +52,7 @@ export default function Scene6({
 }) {
   const Next = useLoadAsset(preLoad);
 
-  const { SceneId, setHideAllButtons setSceneId, isLoading, setisLoading, Assets, setAssets } =
+  const { SceneId, setHideAllButtons, setSceneId, isLoading, setisLoading, Assets, setAssets } =
     useContext(SceneContext);
   const { intro } = Assets;
   const { Bg, setBg } = useContext(BGContext);
@@ -61,6 +61,7 @@ export default function Scene6({
 
   const stop_all_sounds = () => {
     Assets?.[assetID]?.sounds?.map((v) => v?.stop());
+    Assets?.[assetID]?.sounds[0]?.stop();
   };
   // setBg(Scene3screen1?.Bg);
 

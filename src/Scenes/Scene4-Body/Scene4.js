@@ -25,6 +25,8 @@ export default function Scene4({ scenename }) {
 
   const stop_all_sounds = () => {
     Assets?.Scene4?.sounds?.map((v) => v?.stop());
+    Assets?.intro?.sounds[2]?.stop();
+    Assets?.Scene4?.sounds[0]?.stop();
   };
   useEffect(() => {
     if (skipButtonPressed) {
